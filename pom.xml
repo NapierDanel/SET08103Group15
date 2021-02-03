@@ -4,6 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.napier.sem</groupId>
-    <artifactId>SET08103Group15</artifactId>
+    <artifactId>setProject</artifactId>
     <version>0.1.0.1</version>
+     <properties>
+            <maven.compiler.source>1.15</maven.compiler.source>
+            <maven.compiler.target>1.15</maven.compiler.target>
+        </properties>
 </project>
