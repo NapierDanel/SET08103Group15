@@ -9,5 +9,8 @@
         <module name="SET08103Group15" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SET08103Group15" target="1.08" />
+    </bytecodeTargetLevel>
   </component>
 </project>
