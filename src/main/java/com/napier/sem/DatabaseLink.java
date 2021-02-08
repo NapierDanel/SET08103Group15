@@ -2,16 +2,13 @@ package com.napier.sem;
 
 import java.sql.*;
 
+//Containing connect and disconnect functionality, and database interactions
 public class DatabaseLink
 {
-    /**
-     * Connection to MySQL database.
-     */
+    // Connect to the database
     private Connection con = null;
 
-    /**
-     * Connect to the MySQL database.
-     */
+   // Method that connects to the my sql database
     public void connect()
     {
         try
@@ -40,7 +37,7 @@ public class DatabaseLink
             }
             catch (SQLException sqle)
             {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
+                System.out.println("Failed to connect to database attempt " + i);
                 System.out.println(sqle.getMessage());
             }
             catch (InterruptedException ie)
@@ -50,9 +47,7 @@ public class DatabaseLink
         }
     }
 
-    /**
-     * Disconnect from the MySQL database.
-     */
+    // Disconnect from the MySQL database.
     public void disconnect()
     {
         if (con != null)

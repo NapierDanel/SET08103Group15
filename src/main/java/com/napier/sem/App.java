@@ -6,28 +6,24 @@ public class App {
 
     public static void main(String[] args)
     {
-        // Create new Application
+
+        // Create a new DatabaseLink class, containing connect and disconnect functionality, and database interactiond
         DatabaseLink db = new DatabaseLink();
 
 
-        // Connect to database
+        // Connect to database, using methods within Data
         db.connect();
-        System.out.println("Boo yah!, it connected");
 
-        System.out.println("Please enter the city ID you want");
 
+
+        System.out.println("Looping through the first 500 cities within the database");
+
+
+        // Loop through the first 500 entries in the database
         for(int i = 1; i < 500; i++)
         {
             System.out.println(db.getCity(i).name + " " + db.getCity(i).population);
         }
-
-
-        int ID = 5;
-
-
-
-
-
 
 
         // Disconnect from database

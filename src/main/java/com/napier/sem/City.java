@@ -1,32 +1,12 @@
 package com.napier.sem;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
 
+
+// This class will create the city objects, for later use
 class City {
     int id;
     String name;
     String countryCode;
     String district;
     int population;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
