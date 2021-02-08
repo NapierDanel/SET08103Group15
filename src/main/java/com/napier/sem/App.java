@@ -9,7 +9,6 @@ public class App {
         // Create new Application
         DatabaseLink db = new DatabaseLink();
 
-        System.setProperty("file.encoding","UTF-32");
 
         // Connect to database
         db.connect();
