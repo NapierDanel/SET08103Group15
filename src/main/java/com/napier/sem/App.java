@@ -11,10 +11,7 @@ public class App {
         DatabaseLink db = new DatabaseLink();
 
 
-        // Connect to database, using methods within Data
-        db.connect();
-
-
+        DatabaseLink.connInstance();
 
         System.out.println("Looping through the first 500 cities within the database");
 
