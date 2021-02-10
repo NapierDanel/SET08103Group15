@@ -10,6 +10,10 @@ public class App {
         // Create a new DatabaseLink class, containing connect and disconnect functionality, and database interactiond
         DatabaseLink db = new DatabaseLink();
 
+        City city = new City();
+
+
+
 
         DatabaseLink.connInstance();
 
@@ -19,7 +23,7 @@ public class App {
         // Loop through the first 500 entries in the database
         for(int i = 1; i < 500; i++)
         {
-            System.out.println(db.getCity(i).name + " " + db.getCity(i).population);
+            System.out.println(city.getCity(i).name + " " + city.getCity(i).population);
         }
 
 
