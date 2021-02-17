@@ -126,7 +126,7 @@ public class Population {
             // Return new employee if valid.
             // Check one is returned
             while (rset.next()) {
-                System.out.println(rset.getDouble("population"));
+                System.out.println(rset.getLong("population"));
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
