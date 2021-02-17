@@ -1,6 +1,5 @@
 package com.napier.sem;
 
-import java.sql.*;
 
 public class App {
 
@@ -11,16 +10,16 @@ public class App {
         DatabaseLink db = new DatabaseLink();
 
 
-        DatabaseLink.connInstance();
-
-        System.out.println("Looping through the first 500 cities within the database");
-
-
-        // Loop through the first 500 entries in the database
-        for(int i = 1; i < 500; i++)
-        {
-            System.out.println(db.getCity(i).name + " " + db.getCity(i).population);
-        }
+        Population pop = new Population();
+        pop.getCityPopulation(5);
+        pop.getDistrictPopulation("Buenos Aires");
+        pop.getCountryPopulation("DEU");
+        pop.getRegionPopulation("Western Europe");
+        pop.getContinentPopulation("Europe");
+        pop.getWorldPopulation();
+        pop.getCountryPopulationProportionInCities("DEU");
+        pop.getRegionPopulationProportionInCities("Western Europe");
+        pop.getContinentPopulationProportionInCities("Europe");
 
 
         // Disconnect from database
