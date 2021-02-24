@@ -2,7 +2,7 @@
 
 ### Goal in Context
 
-As an *demography student* I want *to produce a report on the population of people living inside and outside of a given city in a region* so that *I can conduct my study on that topic.*
+As an *demography student* I want *to produce a report on the population of people living inside and outside of a given city in a continent, region or country* so that *I can conduct my study on that topic.*
 
 ### Scope
 
