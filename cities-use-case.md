@@ -4,7 +4,7 @@
 
 ### Goal in Context
 
-*As a member of the World Health Organisation I need to know a variety of information about cities including
+As a member of the World Health Organisation I need to know a variety of information about cities including
 
 - A list of all Cities in the world organised from largest population to smallest
 - All the cities in a continent organised by largest population to smallest
@@ -17,15 +17,15 @@
 - The top N populated cities in a country
 - The top N populated cities in a district
 - The population of a specific city
-- A city report which contains, the following, (Name, Country, District, Population)*
+- A city report which contains, the following, (Name, Country, District, Population)
 
 ### Scope
 
-*what system is considered black-box under design*
+Company (double Check)
 
 ### Level
 
-*one of: Summary, Primary task, subfunction*
+Primary Task
 
 ### Preconditions
 
@@ -33,40 +33,29 @@
 
 ### Success End Condition
 
-*the state of the world upon successful completion*
+Reports are sucessfully created on demand
 
 ### Failed End Condition
 
-*the state of the world if goal abandoned*
+No reports are created
 
 ### Primary Actor
 
-*a role name for the primary actor, or description*
+Member of the World Health Organisation
 
 ### Trigger
 
-*the action upon the system that starts the use case, may be a time event*
+A request for city information
 
 ## MAIN SUCCESS SCENARIO
 
 *put here the steps of the scenario from trigger to goal delivery, and any cleanup after*
 
-1. action description
-
-## EXTENSIONS
-
-*put here the extensions, one at a time, each referring to the step of the main scenario*
-
-1. **Condition**: action of sub use case
-
-## SUB-VARIATIONS
-
-*put here the sub-variations that will cause eventual branching in the scenario
-
-1. list of sub-variations
+1. A request for information on cities is created
+2. The WHO member captures any variables, depending on the type of report requested (City name, or ID, or limit)
+3. WHO member extracts the relevent reports based on variables
+4. WHO member provides report to finance.
 
 ## SCHEDULE
 
-**DUE DATE**: *date or release of deployment*
-
-*any other schedule/staffing information you need*
+14th April 2021 
