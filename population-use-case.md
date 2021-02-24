@@ -14,7 +14,7 @@ Primary task.
 
 ### Preconditions
 
-We know the role.  Database contains current population data.
+Database contains current population data.
 
 ### Success End Condition
 
