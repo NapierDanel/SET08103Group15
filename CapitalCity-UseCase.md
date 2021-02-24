@@ -1,10 +1,10 @@
-# USE CASE: 4 Produce a Report on the Salary of Employees of a Given Role
+# USE CASE: Produce a Report on the Population of Capital-ciies from around the world
 
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As an *HR advisor* I want *to produce a report on the salary of employees of a given role* so that *I can support financial reporting of the organisation.*
+As an *Future Mayor* I want *to produce a report on the population of capital cities from around the world* so that *I can find out where woud be best to take over.*
 
 ### Scope
 
@@ -16,35 +16,32 @@ Primary task.
 
 ### Preconditions
 
-We know the role.  Database contains current employee salary data.
+Database contains population data of the world.
 
 ### Success End Condition
 
-A report is available for HR to provide to finance.
+A report is available to help the mayor make his descion.
 
 ### Failed End Condition
 
 No report is produced.
 
 ### Primary Actor
-
-HR Advisor.
+Mayor
 
 ### Trigger
 
-A request for finance information is sent to HR.
+A request from the Mayor.
 
 ## MAIN SUCCESS SCENARIO
 
-1. Finance request salary information for a given role.
-2. HR advisor captures name of the role to get salary information for.
-3. HR advisor extracts current salary information of all employees of the given role.
-4. HR advisor provides report to finance.
+1. Mayor requests population of capital cities around the world.
+2. Mayor extracts population information of all capital cities of the world.
+3. Mayor creates a report to help him with his descion.
 
 ## EXTENSIONS
 
-3. **Role does not exist**:
-    1. HR advisor informs finance no role exists.
+None.
 
 ## SUB-VARIATIONS
 
