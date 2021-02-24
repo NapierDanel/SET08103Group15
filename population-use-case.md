@@ -35,6 +35,8 @@ A study on the population.
 ## MAIN SUCCESS SCENARIO
 
 1. Study on the fraction of population living in cities is started.
+2. Population data is delivered.
+3. Study is completed.
 
 ## EXTENSIONS
 None.
