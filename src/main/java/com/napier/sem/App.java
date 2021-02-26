@@ -10,22 +10,13 @@ public class App {
         // Create a new DatabaseLink class, containing connect and disconnect functionality, and database interactiond
         DatabaseLink db = new DatabaseLink();
 
+
         DatabaseLink.connInstance();
 
-        Country country = new Country();
-        country.getCountriesByPopulationDESC();
-
+        System.out.println("Looping through the first 500 cities within the database");
 
         // Disconnect from database
         db.disconnect();
-
-
-
-
-
-
-
-
 
 
     }
