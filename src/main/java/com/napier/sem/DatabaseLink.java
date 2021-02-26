@@ -6,45 +6,46 @@ import java.sql.*;
 public class DatabaseLink
 {
     // Connect to the database
-    private Connection con = null;
+    private static Connection con = null;
 
-   // Method that connects to the my sql database
-    public void connect()
-    {
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        int retries = 40;
-        for (int i = 0; i < retries; ++i)
-        {
-            System.out.println("Connecting to database...");
+    public static Connection connInstance() {
+        if (con == null) {
             try
             {
-                // Wait a bit for db to start
-                Thread.sleep(30000);
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                break;
+                // Load Database driver
+                Class.forName("com.mysql.jdbc.Driver");
             }
-            catch (SQLException sqle)
+            catch (ClassNotFoundException e)
             {
-                System.out.println("Failed to connect to database attempt " + i);
-                System.out.println(sqle.getMessage());
+                System.out.println("Could not load SQL driver");
+                System.exit(-1);
             }
-            catch (InterruptedException ie)
+
+            int retries = 40;
+            for (int i = 0; i < retries; ++i)
             {
-                System.out.println("Thread interrupted? Should not happen.");
+                System.out.println("Connecting to database...");
+                try
+                {
+                    // Wait a bit for db to start
+                    Thread.sleep(30000);
+                    // Connect to database
+                    con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                    System.out.println("Successfully connected");
+                    break;
+                }
+                catch (SQLException sqle)
+                {
+                    System.out.println("Failed to connect to database attempt " + i);
+                    System.out.println(sqle.getMessage());
+                }
+                catch (InterruptedException ie)
+                {
+                    System.out.println("Thread interrupted? Should not happen.");
+                }
             }
         }
+        return con;
     }
 
     // Disconnect from the MySQL database.
@@ -56,6 +57,7 @@ public class DatabaseLink
             {
                 // Close connection
                 con.close();
+                System.out.println("Connect Successfully closed");
             }
             catch (Exception e)
             {
@@ -65,43 +67,7 @@ public class DatabaseLink
     }
 
 
-    public City getCity(int id)
-    {
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT id, name, countryCode, district, population "
-                            + "FROM city "
-                            + "WHERE id = " + id;
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next())
-            {
-                City city = new City();
-                city.id = rset.getInt("id");
-                city.name = rset.getString("name");
-                city.countryCode = rset.getString("countryCode");
-                city.district = rset.getString("district");
-                city.population = rset.getInt("population");
 
-
-                return city;
-            }
-            else
-                return null;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
-    }
 
 
 
