@@ -14,18 +14,9 @@ public class App {
         DatabaseLink.connInstance();
 
         System.out.println("Looping through the first 500 cities within the database");
-
-
+      
         // Disconnect from database
         db.disconnect();
-
-
-
-
-
-
-
-
 
 
     }
