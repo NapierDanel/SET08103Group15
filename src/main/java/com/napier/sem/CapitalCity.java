@@ -8,7 +8,7 @@ import java.util.Scanner;
 // This class will create the CapitalCity objects, for later use
 class CapitalCity extends City {
     /**
-     *
+     * Uses the data from city to create capital city reports
      * @param id
      * @return
      */
@@ -44,6 +44,9 @@ class CapitalCity extends City {
         }
     }
 
+    /**
+     * Output the highest to lowes populated capital cities in the world
+     */
     public void getCapCityWorldPop()
     {
         try {
@@ -72,6 +75,10 @@ class CapitalCity extends City {
         }
     }
 
+    /**
+     * Output the highest to lowest populated capital cities in a given continent
+     * @param continentName
+     */
     public void getCapCityContPop(String continentName)
     {
         try {
@@ -103,6 +110,10 @@ class CapitalCity extends City {
         return 0;
     }
 
+    /**
+     * Output the highest to lowest populated capital cities in a given region
+     * @param regionName
+     */
     public void getCapCityRegPop(String regionName)
     {
         try {
@@ -132,6 +143,10 @@ class CapitalCity extends City {
         return 0;
     }
 
+    /**
+     * Output the highest to lowest populated capital cities in a the world with a set limit
+     * @param limit
+     */
     public void getCapCityWorldPopLimit(String limit)
     {
         try {
@@ -157,6 +172,11 @@ class CapitalCity extends City {
         return 0;
     }
 
+    /**
+     * Output the highest to lowest populated capital cities in a given continent with a set limit
+     * @param continentName
+     * @param limit
+     */
     public void getCapCityContPop(String continentName, String limit)
     {
         try {
@@ -186,6 +206,11 @@ class CapitalCity extends City {
 
     }
 
+    /**
+     * Output the highest to lowest populated capital cities in a given region with a set limit
+     * @param regiontName
+     * @param limit
+     */
     public void getCapCityContPop(String regiontName, String limit)
     {
         try {
