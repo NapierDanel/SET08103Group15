@@ -13,7 +13,7 @@ class CapitalCity extends City {
      * @return
      */
 
-    public CapitalCity getCapitalcity(int id) {
+    public CapitalCity getCapitalCity(int id) {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -61,8 +61,8 @@ class CapitalCity extends City {
                             + "ORDER BY ci.population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            return rset;
             // Check one is returned
+            // return rset;
 //            while (rset.next())
 //            {
 //                System.out.println(rset.getString("CityName") + " " +
@@ -95,7 +95,7 @@ class CapitalCity extends City {
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            return rset;
+            //return rset;
             // Check one is returned
 //            while (rset.next())
 //            {
@@ -107,7 +107,7 @@ class CapitalCity extends City {
             System.out.println(e.getMessage());
             System.out.println("Failed to get details");
         }
-        return 0;
+        //return 0;
     }
 
     /**
@@ -128,7 +128,7 @@ class CapitalCity extends City {
                             + "ORDER BY ci.population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            return rset;
+            //return rset;
             // Check one is returned
 //            while (rset.next())
 //            {
@@ -140,20 +140,20 @@ class CapitalCity extends City {
             System.out.println(e.getMessage());
             System.out.println("Failed to get details");
         }
-        return 0;
+        //return 0;
     }
 
     /**
      * Output the highest to lowest populated capital cities in a the world with a set limit
-     * @param limit
+     * @param limitInput
      */
-    public void getCapCityWorldPopLimit(String limit)
+    public void getCapCityWorldPopLimit(String limitInput)
     {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
-            int limit = Integer.parseInt(limit);
+            int limit = Integer.parseInt(limitInput);
 
             // Create string for SQL statement
             String strSelect =
@@ -163,27 +163,27 @@ class CapitalCity extends City {
                             + "LIMIT " + limit;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            return rset;
+            //return rset;
             // Check one is returned
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get all city details");
         }
-        return 0;
+        //return 0;
     }
 
     /**
      * Output the highest to lowest populated capital cities in a given continent with a set limit
      * @param continentName
-     * @param limit
+     * @param limitInput
      */
-    public void getCapCityContPop(String continentName, String limit)
+    public void getCapCityContPop(String continentName, String limitInput)
     {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
-            int limit = Integer.parseInt(limit);
+            int limit = Integer.parseInt(limitInput);
 
             // Create string for SQL statement
             String strSelect =
@@ -195,13 +195,13 @@ class CapitalCity extends City {
                             + "LIMIT " + limit;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            return rset;
+            //return rset;
             // Check one is returned
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get all city details");
         }
-        return 0;
+        //return 0;
 
 
     }
@@ -209,15 +209,17 @@ class CapitalCity extends City {
     /**
      * Output the highest to lowest populated capital cities in a given region with a set limit
      * @param regiontName
-     * @param limit
+     * @param limitInput
      */
-    public void getCapCityContPop(String regiontName, String limit)
+
+    /*
+    public void getCapCityContPop(String regionName, String limitInput)
     {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
-            int limit = Integer.parseInt(limit);
+            int limit = Integer.parseInt(limitInput);
 
             // Create string for SQL statement
             String strSelect =
@@ -229,15 +231,17 @@ class CapitalCity extends City {
                             + "LIMIT " + limit;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            return rset;
+            //return rset;
             // Check one is returned
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get all city details");
         }
-        return 0;
+        //return 0;
 
     }
+
+    */
 }
 
 
