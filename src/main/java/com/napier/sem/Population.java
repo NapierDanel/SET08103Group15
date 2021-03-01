@@ -3,8 +3,15 @@ package com.napier.sem;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * Used to create the population reports
+ */
 public class Population {
 
+    /**
+     * Output the population of people on the continent living in cities and living outside of cities in numbers and percentages
+     * @param continent the continent name
+     */
     public void getContinentPopulationProportionInCities(String continent) {
         int continentPopulation = getContinentPopulation(continent);
         int populationInCities = getCityPopulationInContinent(continent);
@@ -19,6 +26,10 @@ public class Population {
                 percentOutsideCities);
     }
 
+    /**
+     * Output the population of people in the region living in cities and living outside of cities in numbers and percentages
+     * @param region the region name
+     */
     public void getRegionPopulationProportionInCities(String region) {
         int regionPopulation = getRegionPopulation(region);
         int populationInCities = getCityPopulationInRegion(region);
@@ -33,6 +44,10 @@ public class Population {
                 percentOutsideCities);
     }
 
+    /**
+     * Output the population of people in the country living in cities and living outside of cities in numbers and percentages
+     * @param code the country code
+     */
     public void getCountryPopulationProportionInCities(String code) {
         try {
             // Create an SQL statement
@@ -61,6 +76,11 @@ public class Population {
         }
     }
 
+    /**
+     * Return the population of people in the region living in cities
+     * @param region the region name
+     * @return the city population in given region
+     */
     public int getCityPopulationInRegion(String region){
         try {
             int population;
@@ -87,6 +107,11 @@ public class Population {
         return 0;
     }
 
+    /**
+     * Return the population of people in the continent living in cities
+     * @param continent the continent name
+     * @return the city population in given continent
+     */
     public int getCityPopulationInContinent(String continent){
         try {
             int population;
@@ -113,6 +138,9 @@ public class Population {
         return 0;
     }
 
+    /**
+     * Output the world population
+     */
     public void getWorldPopulation() {
         try {
             // Create an SQL statement
@@ -134,6 +162,11 @@ public class Population {
         }
     }
 
+    /**
+     * Return the population of the continent
+     * @param continentName the continent name
+     * @return the continent population
+     */
     public int getContinentPopulation(String continentName) {
         try {
             // Create an SQL statement
@@ -159,6 +192,11 @@ public class Population {
         return 0;
     }
 
+    /**
+     * Return the population of the region
+     * @param regionName the region name
+     * @return the region population
+     */
     public int getRegionPopulation(String regionName) {
         try {
             int population;
@@ -185,6 +223,10 @@ public class Population {
         return 0;
     }
 
+    /**
+     * Output the population of the continent
+     * @param code the country code
+     */
     public void getCountryPopulation(String code) {
         try {
             // Create an SQL statement
@@ -208,6 +250,10 @@ public class Population {
         }
     }
 
+    /**
+     * Output the population of the district
+     * @param districtName the district name
+     */
     public void getDistrictPopulation(String districtName) {
         try {
             // Create an SQL statement
@@ -231,6 +277,10 @@ public class Population {
         }
     }
 
+    /**
+     * Output the population of the city
+     * @param id the city id
+     */
     public void getCityPopulation(int id) {
         try {
             // Create an SQL statement
