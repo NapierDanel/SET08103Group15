@@ -160,7 +160,7 @@ class CapitalCity extends City {
                     "SELECT Name, Population "
                             + "FROM city "
                             + "ORDER BY Population DESC "
-                            + "LIMIT " limit;
+                            + "LIMIT " + limit;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             return rset;
@@ -192,7 +192,7 @@ class CapitalCity extends City {
                             + "WHERE continent = " + '\'' + continentName + '\''
                             + "INNER JOIN country ON ci.ID=country.capital "
                             + "ORDER BY ci.population DESC "
-                            + "LIMIT " limit;
+                            + "LIMIT " + limit;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             return rset;
@@ -226,7 +226,7 @@ class CapitalCity extends City {
                             + "WHERE continent = " + '\'' + regionName + '\''
                             + "INNER JOIN country ON ci.ID=country.capital "
                             + "ORDER BY ci.population DESC "
-                            + "LIMIT " limit;
+                            + "LIMIT " + limit;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             return rset;
