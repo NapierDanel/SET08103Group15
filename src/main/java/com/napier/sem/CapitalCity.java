@@ -6,13 +6,15 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 // This class will create the CapitalCity objects, for later use
-class CapitalCity extends City
-{
+class CapitalCity extends City {
+    /**
+     *
+     * @param id
+     * @return
+     */
 
-    public CapitalCity getCapitalcity(int id)
-    {
-        try
-        {
+    public CapitalCity getCapitalcity(int id) {
+        try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
@@ -24,8 +26,7 @@ class CapitalCity extends City
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
             // Check one is returned
-            if (rset.next())
-            {
+            if (rset.next()) {
                 CapitalCity capcity = new CapitalCity();
                 capcity.id = rset.getInt("id");
                 capcity.name = rset.getString("name");
@@ -34,12 +35,9 @@ class CapitalCity extends City
 
 
                 return capcity;
-            }
-            else
+            } else
                 return null;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get Capital City details");
             return null;
@@ -48,10 +46,10 @@ class CapitalCity extends City
 
     public void getCapCityWorldPop()
     {
-        try
-        {
+        try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
+
             // Create string for SQL statement
             String strSelect =
                     "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population "
@@ -60,89 +58,161 @@ class CapitalCity extends City
                             + "ORDER BY ci.population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
+            return rset;
             // Check one is returned
-            while (rset.next())
-            {
-                System.out.println(rset.getString("CityName") + " " +
-                        rset.getString("CountryName") + " " +
-                        rset.getInt("population"));
-            }
+//            while (rset.next())
+//            {
+//                System.out.println(rset.getString("CityName") + " " +
+//                        rset.getString("CountryName") + " " +
+//                        rset.getInt("population"));
+//            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get details");
         }
     }
 
-    public void getCapCityContPop()
+    public void getCapCityContPop(String continentName)
     {
-        try
-        {
+        try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
-            Scanner scanner = new Scanner(System.in);
-
-            //User input continent name
-            System.out.print("Please enter the continent you would like to search: ");
-            String continentName = scanner.nextLine();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name AS 'CityName', country.Name AS 'CountryName', population, "
-                            + "FROM city "
-                            + "WHERE continent = " + '\''+ continentName + '\''
-                            + "INNER JOIN country ON city.ID=country.capital "
-                            + "ORDER BY population DESC";
-
-            //Scanner scanner = new Scanner(System.in);
-
-            //User input continent name
-            //System.out.print("Please enter the continent you would like to search: ");
-            //continentName = scanner.nextLine();
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                            + "FROM city ci "
+                            + "WHERE continent = " + '\'' + continentName + '\''
+                            + "INNER JOIN country ON ci.ID=country.capital "
+                            + "ORDER BY ci.population DESC";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
+            return rset;
             // Check one is returned
-            while (rset.next())
-            {
-                System.out.println(rset.getString("CityName") + " " +
-                        rset.getString("CountryName") + " " +
-                        rset.getDouble("population"));
-            }
+//            while (rset.next())
+//            {
+//                System.out.println(rset.getString("CityName") + " " +
+//                        rset.getString("CountryName") + " " +
+//                        rset.getDouble("population"));
+//            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get details");
         }
+        return 0;
     }
+
     public void getCapCityRegPop(String regionName)
     {
-        try
-        {
+        try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name AS 'CityName', country.Name AS 'CountryName', population, "
-                            + "FROM city "
-                            + "WHERE region = " + '\''+ regionName + '\''
-                            + "INNER JOIN country ON city.ID=country.capital "
-                            + "ORDER BY population DESC";
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                            + "FROM city ci "
+                            + "WHERE region = " + '\'' + regionName + '\''
+                            + "INNER JOIN country ON ci.ID=country.capital "
+                            + "ORDER BY ci.population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
+            return rset;
             // Check one is returned
-            while (rset.next())
-            {
-                System.out.println(rset.getString("CityName") + " " +
-                        rset.getString("CountryName") + " " +
-                        rset.getDouble("population"));
-            }
+//            while (rset.next())
+//            {
+//                System.out.println(rset.getString("CityName") + " " +
+//                        rset.getString("CountryName") + " " +
+//                        rset.getDouble("population"));
+//            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get details");
         }
+        return 0;
+    }
+
+    public void getCapCityWorldPopLimit(String limit)
+    {
+        try {
+            // Create an SQL statement
+            Statement stmt = DatabaseLink.connInstance().createStatement();
+
+            int limit = Integer.parseInt(limit);
+
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT Name, Population "
+                            + "FROM city "
+                            + "ORDER BY Population DESC "
+                            + "LIMIT " limit;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            return rset;
+            // Check one is returned
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get all city details");
+        }
+        return 0;
+    }
+
+    public void getCapCityContPop(String continentName, String limit)
+    {
+        try {
+            // Create an SQL statement
+            Statement stmt = DatabaseLink.connInstance().createStatement();
+
+            int limit = Integer.parseInt(limit);
+
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                            + "FROM city ci "
+                            + "WHERE continent = " + '\'' + continentName + '\''
+                            + "INNER JOIN country ON ci.ID=country.capital "
+                            + "ORDER BY ci.population DESC "
+                            + "LIMIT " limit;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            return rset;
+            // Check one is returned
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get all city details");
+        }
+        return 0;
+
+
+    }
+
+    public void getCapCityContPop(String regiontName, String limit)
+    {
+        try {
+            // Create an SQL statement
+            Statement stmt = DatabaseLink.connInstance().createStatement();
+
+            int limit = Integer.parseInt(limit);
+
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                            + "FROM city ci "
+                            + "WHERE continent = " + '\'' + regionName + '\''
+                            + "INNER JOIN country ON ci.ID=country.capital "
+                            + "ORDER BY ci.population DESC "
+                            + "LIMIT " limit;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            return rset;
+            // Check one is returned
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get all city details");
+        }
+        return 0;
+
     }
 }
-
-
-
 
 
