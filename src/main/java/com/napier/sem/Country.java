@@ -23,13 +23,18 @@ class Country {
     /**
      * Prints the given country
      *
-     * @param country
+     * @param country the country who
      */
     private void printCountry(Country country) {
         System.out.println(country.code + "\t" + country.name + "\t" + country.continent + "\t" + country.region);
     }
 
 
+    /**
+     * Make a database call and  print attributes
+     *
+     * @param strSelect SQL query
+     */
     private void makeDatabaseCall(String strSelect) {
         try {
             // Create an SQL statement
@@ -59,27 +64,60 @@ class Country {
     /**
      * Provides all the countries in the world organised by largest population to smallest.
      */
-    public void getCountriesByPopulationDESC() {
+    public void getCountriesByPopulationDESC(int limit) {
 
-        String strSelect =
-                "SELECT code, name, continent, region, population, capital "
-                        + "FROM country "
-                        + "ORDER BY Population DESC";
+        String strSelect;
 
+        if (limit == 0) {
+            strSelect = "SELECT code, name, continent, region, population, capital "
+                    + "FROM country "
+                    + "ORDER BY Population DESC";
+        } else {
+            strSelect = "SELECT code, name, continent, region, population, capital "
+                    + "FROM country "
+                    + "ORDER BY Population DESC "
+                    + "LIMIT " + limit;
+        }
         makeDatabaseCall(strSelect);
     }
 
     /**
      * Provides All the countries in a continent organised by largest population to smallest.
      */
-    public void getCountriesOnContinentByPopulationDESC() {
-        String strSelect =
-                "SELECT code, name, continent, region, population, capital "
-                        + "FROM country "
-                        + "ORDER BY Population DESC";
+    public void getCountriesOnContinentByPopulationDESC(int limit) {
 
+        String strSelect;
+
+        if (limit == 0) {
+            strSelect = "SELECT code, name, continent, region, population, capital "
+                    + "FROM country "
+                    + "ORDER BY Population DESC ";
+        } else {
+            strSelect = "SELECT code, name, continent, region, population, capital "
+                    + "FROM country "
+                    + "ORDER BY Population DESC "
+                    + " LIMIT " + limit;
+        }
         makeDatabaseCall(strSelect);
     }
 
+    /**
+     * Provides all the countries in a region organised by largest population to smallest.
+     */
+    public void getCountriesInRegionByPopulationDESC(int limit) {
 
+        String strSelect;
+
+        if (limit == 0) {
+            strSelect = "SELECT code, name, continent, region, population, capital "
+                    + "FROM country "
+                    + "ORDER BY Population DESC ";
+        } else {
+            strSelect = "SELECT code, name, continent, region, population, capital "
+                    + "FROM country "
+                    + "ORDER BY Population DESC "
+                    + "LIMIT " + limit;
+        }
+        makeDatabaseCall(strSelect);
+    }
 }
