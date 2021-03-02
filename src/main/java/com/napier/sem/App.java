@@ -20,12 +20,28 @@ public class App {
         // Connects to the database
         DatabaseLink.connInstance();
 
+        // The following code gives an example of how the ResultSet datatype will be accessed
+        City c = new City();
 
+        ResultSet rset = c.getAllCitiesInWorld("20");
+
+        try
+        {
+            while (rset.next())
+            {
+                System.out.println(rset.getString("name") + "    " + rset.getInt("population"));
+            }
+
+            System.out.println("Output complete");
+        }
+        catch (Exception e)
+        {
+            System.out.println("Not working");
+        }
 
         // Disconnect from database
         db.disconnect();
 
-        System.out.println("Disconnected from the database");
 
 
     }
