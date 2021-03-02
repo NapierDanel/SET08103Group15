@@ -2,39 +2,45 @@ package com.napier.sem;
 
 import java.sql.*;
 
+/**
+ * The main class where all other classes are instantiated
+ */
 public class App {
 
+    /**
+     * The main instantiates the main classes and creates a link to the database
+     * @param args     Currently not in use
+     */
     public static void main(String[] args)
     {
 
-        // Create a new DatabaseLink class, containing connect and disconnect functionality, and database interactiond
+        // Create a new DatabaseLink class, containing connect and disconnect functionality, and database interactions
         DatabaseLink db = new DatabaseLink();
 
+        // Connects to the database
+        DatabaseLink.connInstance();
 
-        // Connect to database, using methods within Data
-        db.connect();
+        // The following code gives an example of how the ResultSet datatype will be accessed
+        City c = new City();
 
+        ResultSet rset = c.getAllCitiesInWorld("20");
 
-
-        System.out.println("Looping through the first 500 cities within the database");
-
-
-        // Loop through the first 500 entries in the database
-        for(int i = 1; i < 500; i++)
+        try
         {
-            System.out.println(db.getCity(i).name + " " + db.getCity(i).population);
-        }
+            while (rset.next())
+            {
+                System.out.println(rset.getString("name") + "    " + rset.getInt("population"));
+            }
 
+            System.out.println("Output complete");
+        }
+        catch (Exception e)
+        {
+            System.out.println("Not working");
+        }
 
         // Disconnect from database
         db.disconnect();
-
-
-
-
-
-
-
 
 
 
