@@ -5,4 +5,4 @@
 
 - Release ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/NapierDanel/SET08103Group15)
 
-- License [![LICENSE](https://img.shields.io/github/license/harryaddlesee/sem.svg?style=flat-square)](https://github.com/harryaddlesee/sem/blob/master/LICENSE)
+- License [![LICENSE](https://img.shields.io/github/license/NapierDanel/SET08103Group15)](https://github.com/NapierDanel/SET08103Group15/blob/main/LICENSE)
