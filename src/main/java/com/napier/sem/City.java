@@ -4,8 +4,14 @@ package com.napier.sem;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-// This class will create the city objects, for later use
+/**
+ * The City class contains the methods for manipulating the database and retrieving out the requested data
+ */
 class City {
+
+    /**
+     * Allows for a data structure of type city to be created
+     */
     int id;
     String name;
     String countryCode;
@@ -13,6 +19,12 @@ class City {
     int population;
 
 
+    /**
+     * Get a specific city within the database with its ID
+     *
+     * @param id    The id of the city within the database
+     * @return      Return an object of type city, aka the requested city
+     */
     public City getCity(int id)
     {
         try
@@ -51,6 +63,13 @@ class City {
         }
     }
 
+
+    /**
+     * Get all the Cities in the world within the database
+     *
+     * @param limit     Can take a string (integer), as a limit, with zero being no limit
+     * @return          Return a ResultSet which can be used to print data to the screen or exported to a .csv file
+     */
     public ResultSet getAllCitiesInWorld(String limit)
     {
         try
@@ -91,6 +110,13 @@ class City {
         }
     }
 
+    /**
+     * Get all the Cities in a specific continent within the database
+     *
+     * @param continent Can take a string (continent name)
+     * @param limit     Take a string (integer) as a limit, with zero being no limit
+     * @return          Return a ResultSet which can be used to print data to the screen or exported to a .csv file
+     */
     public ResultSet getCitiesInContinent(String continent, String limit)
     {
         try
@@ -138,6 +164,13 @@ class City {
         }
     }
 
+    /**
+     * Get all the Cities in a specific region within the database
+     *
+     * @param region Can take a string (region name)
+     * @param limit     Take a string (integer) as a limit, with zero being no limit
+     * @return          Return a ResultSet which can be used to print data to the screen or exported to a .csv file
+     */
     public ResultSet getCitiesInRegion(String region, String limit)
     {
         try
@@ -185,6 +218,13 @@ class City {
 
     }
 
+    /**
+     * Get all the Cities in a specific Country within the database
+     *
+     * @param country Can take a string (country name)
+     * @param limit     Take a string (integer) as a limit, with zero being no limit
+     * @return          Return a ResultSet which can be used to print data to the screen or exported to a .csv file
+     */
     public ResultSet getCitiesInCountry(String country, String limit)
     {
         try
@@ -233,6 +273,13 @@ class City {
 
     }
 
+    /**
+     * Get all the Cities in a specific district within the database
+     *
+     * @param district Can take a string (district name)
+     * @param limit     Take a string (integer) as a limit, with zero being no limit
+     * @return          Return a ResultSet which can be used to print data to the screen or exported to a .csv file
+     */
     public ResultSet getCitiesInDistrict(String district, String limit)
     {
         try
@@ -279,26 +326,5 @@ class City {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

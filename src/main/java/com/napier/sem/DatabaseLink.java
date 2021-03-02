@@ -2,12 +2,17 @@ package com.napier.sem;
 
 import java.sql.*;
 
-//Containing connect and disconnect functionality, and database interactions
+/**
+ * Containing connect and disconnect functionality, and database interactions.
+ */
 public class DatabaseLink
 {
     // Connect to the database
     private static Connection con = null;
 
+    /**
+     * @return the connection instance
+     */
     public static Connection connInstance() {
         if (con == null) {
             try
@@ -48,7 +53,9 @@ public class DatabaseLink
         return con;
     }
 
-    // Disconnect from the MySQL database.
+    /**
+     * Disconnect from the MySQL database.
+     */
     public void disconnect()
     {
         if (con != null)
