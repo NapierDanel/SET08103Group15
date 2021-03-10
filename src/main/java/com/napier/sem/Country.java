@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 // Still to be used this class
-class Country {
+public class Country {
 
     public String code;
     public String name;
