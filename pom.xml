@@ -6,12 +6,12 @@
     <groupId>com.napier.sem</groupId>
     <artifactId>SET08103Group15</artifactId>
     <version>0.1.0.3</version>
-     <properties>
-            <maven.compiler.source>1.8</maven.compiler.source>
-            <maven.compiler.target>1.8</maven.compiler.target>
-     </properties>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
-<!--  Potential problem with maven-site-plugin, I ignored it    -->
+    <!--  Potential problem with maven-site-plugin, I ignored it    -->
 
     <build>
         <plugins>
@@ -68,19 +68,16 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.44</version>
+            <version>[8.0,)</version>
         </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.1.0</version>
+            <version>[5.1.0,)</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
-
-
 
 
 </project>
