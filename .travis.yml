@@ -2,10 +2,6 @@ language: java
 
 sudo: false
 
-env:
-  global:
-    - CODECOV_TOKEN='1abf83df-2e80-471e-85a9-7c3f507eaf61'
-
 addons:
   hosts:
     - db
@@ -44,3 +40,7 @@ stages:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+env:
+  global:
+    - CODECOV_TOKEN='1abf83df-2e80-471e-85a9-7c3f507eaf61'
