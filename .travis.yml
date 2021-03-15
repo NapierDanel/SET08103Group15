@@ -2,6 +2,10 @@ language: java
 
 sudo: false
 
+env:
+  global:
+    - CODECOV_TOKEN='1abf83df-2e80-471e-85a9-7c3f507eaf61'
+
 addons:
   hosts:
     - db
