@@ -7,4 +7,4 @@
 
 - License [![LICENSE](https://img.shields.io/github/license/NapierDanel/SET08103Group15)](https://github.com/NapierDanel/SET08103Group15/blob/main/LICENSE)
 
-- Codecov [![codecov](https://codecov.io/gh/NapierDanel/SET08103Group15/branch/main/graph/badge.svg?token=7L83XV4I0V)](https://codecov.io/gh/NapierDanel/SET08103Group15)
+- Codecov [![codecov](https://codecov.io/gh/NapierDanel/SET08103Group15/branch/feature-Testing/graph/badge.svg?token=7L83XV4I0V)](https://codecov.io/gh/NapierDanel/SET08103Group15)
