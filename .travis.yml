@@ -21,10 +21,10 @@ jobs:
   include:
     - stage: unit tests
       jdk: oraclejdk11
-      script: mvn test -Dtest=PopulationTest
+      script: mvn test -Dtest=AppTest
     - stage: integration tests
       jdk: oraclejdk11
-      script: mvn test -Dtest=PopulationTest
+      script: mvn test -Dtest=AppTest
     - stage: deploy
       install: skip
       jdk: oraclejdk11
