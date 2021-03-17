@@ -24,27 +24,43 @@ public class AppTest {
         city = new City();
     }
 
-
-
+    /**
+    * Country Tests
+    **/
     @Test
     @DisplayName("Provides all the countries in the world organised by largest population to smallest")
-    void getCountriesByPopulationDESCTest(){
-        assertNotNull(county.getCountriesByPopulationDESC(0),"Asia");
+    void getCountriesByPopulationDESCTest() throws SQLException {
+        assertNotNull(county.getCountriesByPopulationDESC(0));
     }
 
     @Test
+    @DisplayName("All the countries in a continent organised by largest population to smallest.")
     void getCountriesOnContinentByPopulationDESCTest(){
-
+        assertNotNull(county.getCountriesInRegionByPopulationDESC(0,"Asia"));
     }
 
     @Test
+     @DisplayName("All the countries in a region organised by largest population to smallest.")
     void getCountriesInRegionByPopulationDESCTest(){
-
+        assertNotNull(county.getCountriesInRegionByPopulationDESC(0,"Middle East"));
     }
 
     @Test
+     @DisplayName("The top N populated countries in the world where N is provided by the user.")
     void getCountriesOnContinentByPopulationDESCWithLimitTest(){
+        assertNotNull(county.getCountriesByPopulationDESC(3));
+    }
 
+    @Test
+     @DisplayName("The top N populated countries in a continent where N is provided by the user.")
+    void getCountriesOnContinentByPopulationDESCTestWithLimitTest(){
+        assertNotNull(county.getCountriesInRegionByPopulationDESC(3,"Asia"));
+    }
+
+    @Test
+     @DisplayName("The top N populated countries in a region where N is provided by the user.")
+    void getCountriesInRegionByPopulationDESCTestWithLimitTest(){
+        assertNotNull(county.getCountriesInRegionByPopulationDESC(4,"Middle East"));
     }
 
     @Test
