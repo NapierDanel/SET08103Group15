@@ -1,6 +1,7 @@
 import com.napier.sem.CapitalCity;
 import com.napier.sem.Country;
 import com.napier.sem.Population;
+import com.napier.sem.City;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,12 +14,14 @@ public class AppTest {
     static Population population;
     static Country county;
     static CapitalCity capitalcity;
+    static City city;
 
     @BeforeAll
     static void init() {
         population = new Population();
         county = new Country();
         capitalcity = new CapitalCity();
+        city = new City();
     }
 
 
@@ -119,10 +122,43 @@ public class AppTest {
         assertNotNull(capitalcity.getCapCityContPopLimit("Asia", "10"));
     }
 
+
+    // City Tests
     @Test
-    void getCapCityRegPopLimit()
+    void getCityTest()
     {
-        assertNotNull(capitalcity.getCapCityRegPopLimit("Eastern Europe", "10"));
+        assertNotNull(city.getCity(1));
     }
+
+    @Test
+    void getAllCitiesInWorldDescTest()
+    {
+        assertNotNull(city.getAllCitiesInWorld("20"));
+    }
+
+    @Test
+    void getCitiesInContinentDESCTest()
+    {
+        assertNotNull(city.getCitiesInContinent("Asia", "20"));
+    }
+
+    @Test
+    void getCitiesInRegionDESCTest()
+    {
+        assertNotNull(city.getCitiesInRegion("Western Europe", "10"));
+    }
+
+    @Test
+    void getCitiesInCountryDESCTest()
+    {
+        assertNotNull(city.getCitiesInCountry("Belgium", "10"));
+    }
+
+    @Test
+    void getCitiesInDistrictDESCTest()
+    {
+        assertNotNull(city.getCitiesInRegion("Buenos Aires", "5"));
+    }
+
 
 }

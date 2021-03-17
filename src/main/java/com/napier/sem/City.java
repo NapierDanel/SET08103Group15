@@ -7,7 +7,7 @@ import java.sql.Statement;
 /**
  * The City class contains the methods for manipulating the database and retrieving out the requested data
  */
-class City {
+public class City {
 
     /**
      * Allows for a data structure of type city to be created
