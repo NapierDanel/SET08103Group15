@@ -141,7 +141,7 @@ public class City {
             String strSelect =
                     "Select City.Name, City.Population "
                             + "FROM city "
-                            + "INNER JOIN Countries ON city.CountryCode = country.Code "
+                            + "INNER JOIN country ON city.CountryCode = country.Code "
                             + "WHERE country.continent = "
                             + continent
                             + " "
@@ -194,7 +194,7 @@ public class City {
             String strSelect =
                     "Select City.Name, City.Population "
                             + "FROM city "
-                            + "INNER JOIN Countries ON city.CountryCode = country.Code "
+                            + "INNER JOIN country ON city.CountryCode = country.Code "
                             + "WHERE country.Region = "
                             + region
                             + " "
@@ -249,7 +249,7 @@ public class City {
             String strSelect =
                     "Select City.Name, City.Population "
                             + "FROM city "
-                            + "INNER JOIN Countries ON city.CountryCode = country.Code "
+                            + "INNER JOIN country ON city.CountryCode = country.Code "
                             + "WHERE country.Name = "
                             + country
                             + " "
