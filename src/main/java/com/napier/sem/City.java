@@ -35,7 +35,7 @@ public class City {
             String strSelect =
                     "SELECT id, name, countryCode, district, population "
                             + "FROM city "
-                            + "WHERE id = " + '\'' + id + '\'';
+                            + "WHERE id = " + id;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
@@ -95,7 +95,7 @@ public class City {
                     "SELECT Name, Population "
                             + "FROM city "
                             + "ORDER BY Population DESC "
-                            + '\'' + limit + '\'';
+                            + limit;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
@@ -145,7 +145,7 @@ public class City {
                             + "WHERE country.Continent = " + '\'' + continent + '\''
                             + " "
                             + "ORDER BY city.Population DESC "
-                            + '\'' + limit + '\'';
+                            + limit;
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -197,7 +197,7 @@ public class City {
                             + "WHERE country.Region = " + '\'' + region + '\''
                             + " "
                             + "ORDER BY city.Population DESC"
-                            + '\'' + limit + '\'';
+                            + limit;
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -251,7 +251,7 @@ public class City {
                             + "WHERE country.Name = " + '\'' + country + '\''
                             + " "
                             + "ORDER BY city.Population DESC "
-                            + '\'' + limit + '\'';
+                            + limit;
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -304,7 +304,7 @@ public class City {
                             + "WHERE District = " + '\'' + district + '\''
                             + " "
                             + "ORDER BY Population DESC "
-                            + '\'' + limit + '\'';
+                            + limit;
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
