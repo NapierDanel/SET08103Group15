@@ -304,7 +304,7 @@ public class City {
             String strSelect =
                     "Select Name, Population "
                             + "FROM city "
-                            + "WHERE district = "
+                            + "WHERE District = "
                             + district
                             + " "
                             + "ORDER BY Population DESC "
