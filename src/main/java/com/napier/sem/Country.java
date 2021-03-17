@@ -79,17 +79,19 @@ public class Country {
     /**
      * Provides All the countries in a continent organised by largest population to smallest.
      */
-    public ResultSet getCountriesOnContinentByPopulationDESC(int limit) {
+    public ResultSet getCountriesOnContinentByPopulationDESC(int limit, String population) {
 
         String strSelect;
 
         if (limit == 0) {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
+                    + "where continent = " + population
                     + "ORDER BY Population DESC ";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
+                    + "where continent = " + population
                     + "ORDER BY Population DESC "
                     + " LIMIT " + limit;
         }
@@ -99,17 +101,19 @@ public class Country {
     /**
      * Provides all the countries in a region organised by largest population to smallest.
      */
-    public ResultSet getCountriesInRegionByPopulationDESC(int limit) {
+    public ResultSet getCountriesInRegionByPopulationDESC(int limit, String region) {
 
         String strSelect;
 
         if (limit == 0) {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
+                    + "where region = " + region
                     + "ORDER BY Population DESC ";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
+                    + "where region = " + region
                     + "ORDER BY Population DESC "
                     + "LIMIT " + limit;
         }
