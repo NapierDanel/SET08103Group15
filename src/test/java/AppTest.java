@@ -112,4 +112,11 @@ public class AppTest {
     @Test
     void getCapCityWorldPopLimit() { assertNotNull(capitalcity.getCapCityWorldPopLimit("10")); }
 
+    @Test
+    void getCapCityContPopLimit()
+
+    {
+        assertNotNull(capitalcity.getCapCityContPopLimit("Asia", "10"));
+    }
+
 }
