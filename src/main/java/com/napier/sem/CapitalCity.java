@@ -81,7 +81,7 @@ public class CapitalCity extends City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population "
                             + "FROM city ci "
                             + "WHERE continent = " + '\'' + continentName + '\''
                             + " INNER JOIN country ON ci.ID=country.capital "
@@ -108,7 +108,7 @@ public class CapitalCity extends City {
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population "
                             + "FROM city ci "
                             + "WHERE region = " + '\'' + regionName + '\''
                             + " INNER JOIN country ON ci.ID=country.capital "
@@ -166,7 +166,7 @@ public class CapitalCity extends City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population "
                             + "FROM city ci "
                             + "WHERE continent = " + '\'' + continentName + '\''
                             + " INNER JOIN country ON ci.ID=country.capital "
@@ -199,7 +199,7 @@ public class CapitalCity extends City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population "
                             + "FROM city ci "
                             + "WHERE continent = " + '\'' + regionName + '\''
                             + " INNER JOIN country ON ci.ID=country.capital "
