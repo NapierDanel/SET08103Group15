@@ -86,14 +86,14 @@ public class Country {
         if (limit == 0) {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
-                    + "where continent = " + population
+                    + "where region = "  + '\'' + population + '\''
                     + "ORDER BY Population DESC ";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
-                    + "where continent = " + population
+                    + "where region = "  + '\'' + population + '\''
                     + "ORDER BY Population DESC "
-                    + " LIMIT " + limit;
+                    + "LIMIT " + limit;
         }
         return makeDatabaseCall(strSelect);
     }
@@ -108,12 +108,12 @@ public class Country {
         if (limit == 0) {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
-                    + "where region = " + region
+                    + "where region = "  + '\'' + region + '\''
                     + "ORDER BY Population DESC ";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
-                    + "where region = " + region
+                    + "where region = "  + '\'' + region + '\''
                     + "ORDER BY Population DESC "
                     + "LIMIT " + limit;
         }
