@@ -157,7 +157,7 @@ public class AppTest {
     @Test
     void getCitiesInDistrictDESCTest()
     {
-        assertNotNull(city.getCitiesInDistrict("Buenos Aires", "5"));
+        assertNotNull(city.getCitiesInDistrict("Distrito Federal", "2"));
     }
 
 
