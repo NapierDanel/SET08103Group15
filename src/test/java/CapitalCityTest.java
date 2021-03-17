@@ -28,11 +28,7 @@ public class CapitalCityTest
     }
 
     @Test
-    void getCapCityWorldPopLimit()
-
-    {
-        assertNotNull(capitalcity.getCapCityWorldPopLimit("10"));
-    }
+    void getCapCityWorldPopLimit() { assertNotNull(capitalcity.getCapCityWorldPopLimit("10")); }
 
     @Test
     void getCapCityContPopLimit()

@@ -109,4 +109,7 @@ public class AppTest {
         assertNotNull(capitalcity.getCapCityRegPop("Eastern Europe"));
     }
 
+    @Test
+    void getCapCityWorldPopLimit() { assertNotNull(capitalcity.getCapCityWorldPopLimit("10")); }
+
 }
