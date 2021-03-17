@@ -84,7 +84,7 @@ public class CapitalCity extends City {
                     "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
                             + "FROM city ci "
                             + "WHERE continent = " + '\'' + continentName + '\''
-                            + "INNER JOIN country ON ci.ID=country.capital "
+                            + " INNER JOIN country ON ci.ID=country.capital "
                             + "ORDER BY ci.population DESC";
 
             // Execute SQL statement
@@ -111,7 +111,7 @@ public class CapitalCity extends City {
                     "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
                             + "FROM city ci "
                             + "WHERE region = " + '\'' + regionName + '\''
-                            + "INNER JOIN country ON ci.ID=country.capital "
+                            + " INNER JOIN country ON ci.ID=country.capital "
                             + "ORDER BY ci.population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -169,7 +169,7 @@ public class CapitalCity extends City {
                     "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
                             + "FROM city ci "
                             + "WHERE continent = " + '\'' + continentName + '\''
-                            + "INNER JOIN country ON ci.ID=country.capital "
+                            + " INNER JOIN country ON ci.ID=country.capital "
                             + "ORDER BY ci.population DESC "
                             + "LIMIT " + limit;
             // Execute SQL statement
@@ -202,7 +202,7 @@ public class CapitalCity extends City {
                     "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
                             + "FROM city ci "
                             + "WHERE continent = " + '\'' + regionName + '\''
-                            + "INNER JOIN country ON ci.ID=country.capital "
+                            + " INNER JOIN country ON ci.ID=country.capital "
                             + "ORDER BY ci.population DESC "
                             + "LIMIT " + limit;
             // Execute SQL statement
