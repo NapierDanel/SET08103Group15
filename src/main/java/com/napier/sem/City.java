@@ -139,11 +139,10 @@ public class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "Select City.Name, City.Population "
+                    "Select city.Name, city.Population "
                             + "FROM city "
                             + "INNER JOIN country ON city.CountryCode = country.Code "
-                            + "WHERE country.continent = "
-                            + continent
+                            + "WHERE country.Continent = " + '\'' + continent + '\''
                             + " "
                             + "ORDER BY city.Population DESC "
                             + limit;
@@ -192,13 +191,12 @@ public class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "Select City.Name, City.Population "
+                    "Select city.Name, city.Population "
                             + "FROM city "
                             + "INNER JOIN country ON city.CountryCode = country.Code "
-                            + "WHERE country.Region = "
-                            + region
+                            + "WHERE country.Region = " + '\'' + region + '\''
                             + " "
-                            + "ORDER BY city.Population DESC"
+                            + "ORDER BY city.Population DESC "
                             + limit;
 
             // Execute SQL statement
@@ -247,11 +245,10 @@ public class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "Select City.Name, City.Population "
+                    "Select city.Name, city.Population "
                             + "FROM city "
                             + "INNER JOIN country ON city.CountryCode = country.Code "
-                            + "WHERE country.Name = "
-                            + country
+                            + "WHERE country.Name = " + '\'' + country + '\''
                             + " "
                             + "ORDER BY city.Population DESC "
                             + limit;
@@ -304,8 +301,7 @@ public class City {
             String strSelect =
                     "Select Name, Population "
                             + "FROM city "
-                            + "WHERE District = "
-                            + district
+                            + "WHERE District = " + '\'' + district + '\''
                             + " "
                             + "ORDER BY Population DESC "
                             + limit;
