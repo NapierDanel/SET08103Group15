@@ -1,3 +1,4 @@
+import com.napier.sem.CapitalCity;
 import com.napier.sem.Country;
 import com.napier.sem.Population;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,11 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class AppTest {
     static Population population;
     static Country county;
+    static CapitalCity capitalcity;
 
     @BeforeAll
     static void init() {
         population = new Population();
         county = new Country();
+        capitalcity = new CapitalCity();
     }
 
 
@@ -84,6 +87,13 @@ public class AppTest {
     @Test
     void getCityPopulationTest() {
         assertNotNull(population.getCityPopulation(293));
+    }
+
+    @Test
+    void getCapCityWorldPop()
+
+    {
+        assertNotNull(capitalcity.getCapCityWorldPop());
     }
 
 }

@@ -6,7 +6,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 // This class will create the CapitalCity objects, for later use
-class CapitalCity extends City {
+public class CapitalCity extends City {
     /**
      * Uses the data from city to create capital city reports
      * @param id
