@@ -196,7 +196,7 @@ public class City {
                             + "INNER JOIN country ON city.CountryCode = country.Code "
                             + "WHERE country.Region = " + '\'' + region + '\''
                             + " "
-                            + "ORDER BY city.Population DESC"
+                            + "ORDER BY city.Population DESC "
                             + limit;
 
             // Execute SQL statement
