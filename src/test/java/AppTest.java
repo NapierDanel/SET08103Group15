@@ -96,4 +96,10 @@ public class AppTest {
         assertNotNull(capitalcity.getCapCityWorldPop());
     }
 
+    @Test
+    void getCapCityContPop()
+    {
+        assertNotNull(capitalcity.getCapCityContPop("Asia"));
+    }
+
 }
