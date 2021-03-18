@@ -26,8 +26,9 @@ public class Country {
      *
      * @param country the country who
      */
-    private void printCountry(Country country) {
+    public String printCountry(Country country) {
         System.out.println(country.code + "\t" + country.name + "\t" + country.continent + "\t" + country.region);
+        return country.name;
     }
 
 

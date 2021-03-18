@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class AppTest {
+public class IntegrationTest {
     static Population population;
     static Country county;
     static CapitalCity capitalcity;
