@@ -13,13 +13,13 @@ public class Population {
      * Output the population of people on the continent living in cities and living outside of cities in numbers and percentages
      * @param continent the continent name
      */
-    public void getContinentPopulationProportionInCities(String continent) throws SQLException {
+    public String getContinentPopulationProportionInCities(String continent) throws SQLException {
         int continentPopulation = getContinentPopulation(continent).getInt("population");
         int populationInCities = getCityPopulationInContinent(continent);
         int populationOutsideCities = continentPopulation - populationInCities;
         float percentInCities = (populationInCities * 100.0f) / continentPopulation;
         float percentOutsideCities = ((populationOutsideCities * 100.0f) / continentPopulation);
-        System.out.println(continent + "    " +
+        return(continent + "    " +
                 continentPopulation + "    " +
                 populationInCities + "    " +
                 percentInCities + "    " +
@@ -31,13 +31,13 @@ public class Population {
      * Output the population of people in the region living in cities and living outside of cities in numbers and percentages
      * @param region the region name
      */
-    public void getRegionPopulationProportionInCities(String region) throws SQLException {
+    public String getRegionPopulationProportionInCities(String region) throws SQLException {
         int regionPopulation = getRegionPopulation(region).getInt("population");
         int populationInCities = getCityPopulationInRegion(region).getInt("population");
         int populationOutsideCities = regionPopulation - populationInCities;
         float percentInCities = (populationInCities * 100.0f) / regionPopulation;
         float percentOutsideCities = ((populationOutsideCities * 100.0f) / regionPopulation);
-        System.out.println(region + "    " +
+        return (region + "    " +
                 regionPopulation + "    " +
                 populationInCities + "    " +
                 percentInCities + "    " +
