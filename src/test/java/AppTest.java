@@ -65,12 +65,12 @@ public class AppTest {
 
     @Test
     void getContinentPopulationProportionInCitiesTest() throws SQLException  {
-        population.getContinentPopulationProportionInCities("Africa");
+        assertNotNull(population.getContinentPopulationProportionInCities("Africa"));
     }
 
     @Test
     void getRegionPopulationProportionInCitiesTest() throws SQLException {
-        population.getRegionPopulationProportionInCities("Southeast Asia");
+        assertNotNull(population.getRegionPopulationProportionInCities("Southeast Asia"));
     }
 
     @Test
