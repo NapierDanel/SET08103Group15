@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -12,43 +13,52 @@ public class Population {
      * Output the population of people on the continent living in cities and living outside of cities in numbers and percentages
      * @param continent the continent name
      */
-    public void getContinentPopulationProportionInCities(String continent) {
-        int continentPopulation = getContinentPopulation(continent);
-        int populationInCities = getCityPopulationInContinent(continent);
-        int populationOutsideCities = continentPopulation - populationInCities;
-        float percentInCities = (populationInCities * 100.0f) / continentPopulation;
-        float percentOutsideCities = ((populationOutsideCities * 100.0f) / continentPopulation);
-        System.out.println(continent + "    " +
-                continentPopulation + "    " +
-                populationInCities + "    " +
-                percentInCities + "    " +
-                populationOutsideCities + "    " +
-                percentOutsideCities);
+    public String getContinentPopulationProportionInCities(String continent) throws SQLException {
+        ResultSet rsContPop = getContinentPopulation(continent);
+        if(rsContPop.next()) {
+            int continentPopulation = rsContPop.getInt("population");
+            int populationInCities = getCityPopulationInContinent(continent);
+            int populationOutsideCities = continentPopulation - populationInCities;
+            float percentInCities = (populationInCities * 100.0f) / continentPopulation;
+            float percentOutsideCities = ((populationOutsideCities * 100.0f) / continentPopulation);
+            return (continent + "    " +
+                    continentPopulation + "    " +
+                    populationInCities + "    " +
+                    percentInCities + "    " +
+                    populationOutsideCities + "    " +
+                    percentOutsideCities);
+        }
+        return null;
     }
 
     /**
      * Output the population of people in the region living in cities and living outside of cities in numbers and percentages
      * @param region the region name
      */
-    public void getRegionPopulationProportionInCities(String region) {
-        int regionPopulation = getRegionPopulation(region);
-        int populationInCities = getCityPopulationInRegion(region);
+    public String getRegionPopulationProportionInCities(String region) throws SQLException {
+        ResultSet rsRegPop = getRegionPopulation(region);
+        ResultSet rsCityPop = getCityPopulationInRegion(region);
+        if(rsRegPop.next() && rsCityPop.next()) {
+        int regionPopulation = rsRegPop.getInt("population");
+        int populationInCities = rsCityPop.getInt("population");
         int populationOutsideCities = regionPopulation - populationInCities;
         float percentInCities = (populationInCities * 100.0f) / regionPopulation;
         float percentOutsideCities = ((populationOutsideCities * 100.0f) / regionPopulation);
-        System.out.println(region + "    " +
+        return (region + "    " +
                 regionPopulation + "    " +
                 populationInCities + "    " +
                 percentInCities + "    " +
                 populationOutsideCities + "    " +
                 percentOutsideCities);
+        }
+        return null;
     }
 
     /**
      * Output the population of people in the country living in cities and living outside of cities in numbers and percentages
      * @param code the country code
      */
-    public void getCountryPopulationProportionInCities(String code) {
+    public ResultSet getCountryPopulationProportionInCities(String code) {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -60,20 +70,12 @@ public class Population {
                             + "AND co.Code = ci.CountryCode";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            while (rset.next()) {
-                System.out.println(rset.getString("name") + "    " +
-                        rset.getInt("population") + "    " +
-                        rset.getInt("inCities") + "    " +
-                        rset.getFloat("inCitiesPer") + "    " +
-                        rset.getInt("notInCities") + "    " +
-                        rset.getFloat("notInCitiesPer"));
-            }
+            return rset;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
         }
+        return null;
     }
 
     /**
@@ -81,7 +83,7 @@ public class Population {
      * @param region the region name
      * @return the city population in given region
      */
-    public int getCityPopulationInRegion(String region){
+    public ResultSet getCityPopulationInRegion(String region){
         try {
             int population;
             // Create an SQL statement
@@ -94,17 +96,12 @@ public class Population {
                             + "AND co.Code = ci.CountryCode";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next()) {
-                return rset.getInt("population");
-            }
+            return rset;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
-            return 0;
         }
-        return 0;
+        return null;
     }
 
     /**
@@ -125,8 +122,6 @@ public class Population {
                             + "AND co.Code = ci.CountryCode";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
             if (rset.next()) {
                 return rset.getInt("population");
             }
@@ -141,7 +136,7 @@ public class Population {
     /**
      * Output the world population
      */
-    public void getWorldPopulation() {
+    public ResultSet getWorldPopulation() {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -151,15 +146,12 @@ public class Population {
                             + "FROM country ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            while (rset.next()) {
-                System.out.println(rset.getLong("population"));
-            }
+            return rset;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
         }
+        return null;
     }
 
     /**
@@ -167,7 +159,7 @@ public class Population {
      * @param continentName the continent name
      * @return the continent population
      */
-    public int getContinentPopulation(String continentName) {
+    public ResultSet getContinentPopulation(String continentName) {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -178,18 +170,12 @@ public class Population {
                             + "WHERE continent = " + '\''+ continentName + '\'';
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next()) {
-                int population = rset.getInt("population");
-                System.out.println(rset.getString("continent") + "    " + population);
-                return population;
-            }
+            return  rset;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
         }
-        return 0;
+        return null;
     }
 
     /**
@@ -197,7 +183,7 @@ public class Population {
      * @param regionName the region name
      * @return the region population
      */
-    public int getRegionPopulation(String regionName) {
+    public ResultSet getRegionPopulation(String regionName) {
         try {
             int population;
             // Create an SQL statement
@@ -209,25 +195,19 @@ public class Population {
                             + "WHERE region = " + '\''+ regionName + '\'';
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next()) {
-                population = rset.getInt("population");
-                System.out.println(rset.getString("region") + "    " + population);
-                return population;
-            }
+            return rset;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
         }
-        return 0;
+        return null;
     }
 
     /**
      * Output the population of the continent
      * @param code the country code
      */
-    public void getCountryPopulation(String code) {
+    public ResultSet getCountryPopulation(String code) {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -238,23 +218,19 @@ public class Population {
                             + "WHERE code = " + '\''+ code + '\'';
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            while (rset.next()) {
-                System.out.println(rset.getString("name") + "    " +
-                        rset.getInt("population"));
-            }
+            return rset;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
         }
+        return null;
     }
 
     /**
      * Output the population of the district
      * @param districtName the district name
      */
-    public void getDistrictPopulation(String districtName) {
+    public ResultSet getDistrictPopulation(String districtName) {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -265,23 +241,19 @@ public class Population {
                             + "WHERE district = " + '\''+ districtName + '\'';
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            while (rset.next()) {
-                System.out.println(rset.getString("district") + "    " +
-                        rset.getInt("population"));
-            }
+            return rset;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
         }
+        return null;
     }
 
     /**
      * Output the population of the city
      * @param id the city id
      */
-    public void getCityPopulation(int id) {
+    public ResultSet getCityPopulation(int id) {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -292,16 +264,12 @@ public class Population {
                             + "WHERE id = " + id;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            while (rset.next()) {
-                System.out.println(rset.getString("name") + "    " +
-                        rset.getInt("population"));
-            }
+            return rset;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
         }
+        return null;
     }
 
 }
