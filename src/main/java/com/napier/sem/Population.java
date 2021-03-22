@@ -14,17 +14,21 @@ public class Population {
      * @param continent the continent name
      */
     public String getContinentPopulationProportionInCities(String continent) throws SQLException {
-        int continentPopulation = getContinentPopulation(continent).getInt("population");
-        int populationInCities = getCityPopulationInContinent(continent);
-        int populationOutsideCities = continentPopulation - populationInCities;
-        float percentInCities = (populationInCities * 100.0f) / continentPopulation;
-        float percentOutsideCities = ((populationOutsideCities * 100.0f) / continentPopulation);
-        return(continent + "    " +
-                continentPopulation + "    " +
-                populationInCities + "    " +
-                percentInCities + "    " +
-                populationOutsideCities + "    " +
-                percentOutsideCities);
+        ResultSet rsContPop = getContinentPopulation(continent);
+        if(rsContPop.next()) {
+            int continentPopulation = rsContPop.getInt("population");
+            int populationInCities = getCityPopulationInContinent(continent);
+            int populationOutsideCities = continentPopulation - populationInCities;
+            float percentInCities = (populationInCities * 100.0f) / continentPopulation;
+            float percentOutsideCities = ((populationOutsideCities * 100.0f) / continentPopulation);
+            return (continent + "    " +
+                    continentPopulation + "    " +
+                    populationInCities + "    " +
+                    percentInCities + "    " +
+                    populationOutsideCities + "    " +
+                    percentOutsideCities);
+        }
+        return null;
     }
 
     /**
@@ -32,8 +36,11 @@ public class Population {
      * @param region the region name
      */
     public String getRegionPopulationProportionInCities(String region) throws SQLException {
-        int regionPopulation = getRegionPopulation(region).getInt("population");
-        int populationInCities = getCityPopulationInRegion(region).getInt("population");
+        ResultSet rsRegPop = getRegionPopulation(region);
+        ResultSet rsCityPop = getCityPopulationInRegion(region);
+        if(rsRegPop.next() && rsCityPop.next()) {
+        int regionPopulation = rsRegPop.getInt("population");
+        int populationInCities = rsCityPop.getInt("population");
         int populationOutsideCities = regionPopulation - populationInCities;
         float percentInCities = (populationInCities * 100.0f) / regionPopulation;
         float percentOutsideCities = ((populationOutsideCities * 100.0f) / regionPopulation);
@@ -43,6 +50,8 @@ public class Population {
                 percentInCities + "    " +
                 populationOutsideCities + "    " +
                 percentOutsideCities);
+        }
+        return null;
     }
 
     /**

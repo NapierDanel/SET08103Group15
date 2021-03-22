@@ -65,12 +65,12 @@ public class IntegrationTest {
 
     @Test
     void getContinentPopulationProportionInCitiesTest() throws SQLException  {
-        //assertNotNull(population.getContinentPopulationProportionInCities("Africa"));
+        assertNotNull(population.getContinentPopulationProportionInCities("Europe"));
     }
 
     @Test
     void getRegionPopulationProportionInCitiesTest() throws SQLException {
-        //assertNotNull(population.getRegionPopulationProportionInCities("Southeast Asia"));
+        assertNotNull(population.getRegionPopulationProportionInCities("Southeast Asia"));
     }
 
     @Test
