@@ -64,80 +64,101 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Return the continent population proportion of people living in cities.")
     void getContinentPopulationProportionInCitiesTest() throws SQLException  {
         assertNotNull(population.getContinentPopulationProportionInCities("Europe"));
     }
 
     @Test
+    @DisplayName("Return the region population proportion of people living in cities.")
     void getRegionPopulationProportionInCitiesTest() throws SQLException {
         assertNotNull(population.getRegionPopulationProportionInCities("Southeast Asia"));
     }
 
     @Test
+    @DisplayName("Return the country population proportion of people living in cities.")
     void getCountryPopulationProportionInCities() {
         assertNotNull(population.getCountryPopulationProportionInCities("SAU"));
     }
 
     @Test
+    @DisplayName("Return world population.")
     void getWorldPopulationTest() {
         assertNotNull(population.getWorldPopulation());
     }
 
     @Test
+    @DisplayName("Return the continent population.")
     void getContinentPopulationTest() {
         assertNotNull(population.getContinentPopulation("Europe"));
     }
 
     @Test
+    @DisplayName("Return the region population.")
     void getRegionPopulationTest() {
         assertNotNull(population.getRegionPopulation("Eastern Europe"));
     }
 
     @Test
+    @DisplayName("Return the country population.")
     void getCountryPopulationTest() {
         assertNotNull(population.getCountryPopulation("HKG"));
     }
 
     @Test
+    @DisplayName("Return the district population.")
     void getDistrictPopulationTest() {
         assertNotNull(population.getDistrictPopulation("Rio Grande do Norte"));
     }
 
     @Test
+    @DisplayName("Return the city population.")
     void getCityPopulationTest() {
         assertNotNull(population.getCityPopulation(293));
     }
 
+    // Capital City Tests
     @Test
+    @DisplayName("Display the highest to lowest populated capital cities in the world.")
     void getCapCityWorldPop()
-
     {
         assertNotNull(capitalcity.getCapCityWorldPop());
     }
 
     @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given continent.")
     void getCapCityContPop()
     {
         assertNotNull(capitalcity.getCapCityContPop("Asia"));
     }
 
     @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given region.")
     void getCapCityRegPop()
-
     {
         assertNotNull(capitalcity.getCapCityRegPop("Eastern Europe"));
     }
 
     @Test
-    void getCapCityWorldPopLimit() { assertNotNull(capitalcity.getCapCityWorldPopLimit("10")); }
+    @DisplayName("Display the highest to lowest populated capital cities in a the world with a set limit.")
+    void getCapCityWorldPopLimit()
+    {
+        assertNotNull(capitalcity.getCapCityWorldPopLimit("10"));
+    }
 
     @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given continent with a set limit.")
     void getCapCityContPopLimit()
-
     {
         assertNotNull(capitalcity.getCapCityContPopLimit("Asia", "10"));
     }
 
+    @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given region with a set limit.")
+    void get CapCityRegPopLimit()
+    {
+        assertNotNull(capitalcity.getCapCityRegPopLimit("Eastern Europe", "10"));
+    }
 
     // City Tests
     @Test
