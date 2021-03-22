@@ -141,36 +141,42 @@ public class IntegrationTest {
 
     // City Tests
     @Test
+    @DisplayName("Get a city by its ID")
     void getCityTest()
     {
         assertNotNull(city.getCity(1));
     }
 
     @Test
+    @DisplayName("Provides all the cities in the world organised by largest population to smallest")
     void getAllCitiesInWorldDescTest()
     {
         assertNotNull(city.getAllCitiesInWorld("20"));
     }
 
     @Test
+    @DisplayName("Provides all the cities in a continent organised by largest population to smallest")
     void getCitiesInContinentDESCTest()
     {
         assertNotNull(city.getCitiesInContinent("Asia", "20"));
     }
 
     @Test
+    @DisplayName("Provides all the cities in a region organised by largest population to smallest")
     void getCitiesInRegionDESCTest()
     {
         assertNotNull(city.getCitiesInRegion("Western Europe", "10"));
     }
 
     @Test
+    @DisplayName("Provides all the cities in a country organised by largest population to smallest")
     void getCitiesInCountryDESCTest()
     {
         assertNotNull(city.getCitiesInCountry("Belgium", "10"));
     }
 
     @Test
+    @DisplayName("Provides all the cities in a district organised by largest population to smallest")
     void getCitiesInDistrictDESCTest()
     {
         assertNotNull(city.getCitiesInDistrict("Distrito Federal", "2"));
