@@ -108,6 +108,7 @@ public class IntegrationTest {
         assertNotNull(population.getCityPopulation(293));
     }
 
+    // Capital City Tests
     @Test
     void getCapCityWorldPop()
 
@@ -117,6 +118,7 @@ public class IntegrationTest {
 
     @Test
     void getCapCityContPop()
+
     {
         assertNotNull(capitalcity.getCapCityContPop("Asia"));
     }
@@ -124,21 +126,28 @@ public class IntegrationTest {
     @Test
     void getCapCityRegPop()
 
+
     {
         assertNotNull(capitalcity.getCapCityRegPop("Eastern Europe"));
     }
 
     @Test
-    void getCapCityWorldPopLimit() { assertNotNull(capitalcity.getCapCityWorldPopLimit("10")); }
+    void getCapCityWorldPopLimit()
+    {
+        assertNotNull(capitalcity.getCapCityWorldPopLimit("10"));
+    }
 
     @Test
     void getCapCityContPopLimit()
-
     {
         assertNotNull(capitalcity.getCapCityContPopLimit("Asia", "10"));
     }
 
-
+    @Test
+    void get CapCityRegPopLimit()
+    {
+        assertNotNull(capitalcity.getCapCityRegPopLimit("Eastern Europe", "10"));
+    }
     // City Tests
     @Test
     void getCityTest()
