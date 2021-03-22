@@ -64,46 +64,55 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Return the continent population proportion of people living in cities.")
     void getContinentPopulationProportionInCitiesTest() throws SQLException  {
         assertNotNull(population.getContinentPopulationProportionInCities("Europe"));
     }
 
     @Test
+    @DisplayName("Return the region population proportion of people living in cities.")
     void getRegionPopulationProportionInCitiesTest() throws SQLException {
         assertNotNull(population.getRegionPopulationProportionInCities("Southeast Asia"));
     }
 
     @Test
+    @DisplayName("Return the country population proportion of people living in cities.")
     void getCountryPopulationProportionInCities() {
         assertNotNull(population.getCountryPopulationProportionInCities("SAU"));
     }
 
     @Test
+    @DisplayName("Return world population.")
     void getWorldPopulationTest() {
         assertNotNull(population.getWorldPopulation());
     }
 
     @Test
+    @DisplayName("Return the continent population.")
     void getContinentPopulationTest() {
         assertNotNull(population.getContinentPopulation("Europe"));
     }
 
     @Test
+    @DisplayName("Return the region population.")
     void getRegionPopulationTest() {
         assertNotNull(population.getRegionPopulation("Eastern Europe"));
     }
 
     @Test
+    @DisplayName("Return the country population.")
     void getCountryPopulationTest() {
         assertNotNull(population.getCountryPopulation("HKG"));
     }
 
     @Test
+    @DisplayName("Return the district population.")
     void getDistrictPopulationTest() {
         assertNotNull(population.getDistrictPopulation("Rio Grande do Norte"));
     }
 
     @Test
+    @DisplayName("Return the city population.")
     void getCityPopulationTest() {
         assertNotNull(population.getCityPopulation(293));
     }
