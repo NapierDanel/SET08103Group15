@@ -45,7 +45,7 @@ public class CapitalCity extends City {
     }
 
     /**
-     * Output the highest to lowes populated capital cities in the world
+     * Output the highest to lowest populated capital cities in the world
      */
     public ResultSet getCapCityWorldPop()
     {
