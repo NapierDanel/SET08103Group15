@@ -6,7 +6,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 // This class will create the CapitalCity objects, for later use
-class CapitalCity extends City {
+public class CapitalCity extends City {
     /**
      * Uses the data from city to create capital city reports
      * @param id
@@ -45,7 +45,7 @@ class CapitalCity extends City {
     }
 
     /**
-     * Output the highest to lowes populated capital cities in the world
+     * Output the highest to lowest populated capital cities in the world
      */
     public ResultSet getCapCityWorldPop()
     {
@@ -81,10 +81,10 @@ class CapitalCity extends City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population "
                             + "FROM city ci "
-                            + "WHERE continent = " + '\'' + continentName + '\''
                             + "INNER JOIN country ON ci.ID=country.capital "
+                            + " WHERE continent = " + '\'' + continentName + '\''
                             + "ORDER BY ci.population DESC";
 
             // Execute SQL statement
@@ -108,10 +108,10 @@ class CapitalCity extends City {
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population "
                             + "FROM city ci "
-                            + "WHERE region = " + '\'' + regionName + '\''
                             + "INNER JOIN country ON ci.ID=country.capital "
+                            + " WHERE region = " + '\'' + regionName + '\''
                             + "ORDER BY ci.population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -166,10 +166,10 @@ class CapitalCity extends City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population "
                             + "FROM city ci "
-                            + "WHERE continent = " + '\'' + continentName + '\''
                             + "INNER JOIN country ON ci.ID=country.capital "
+                            + " WHERE continent = " + '\'' + continentName + '\''
                             + "ORDER BY ci.population DESC "
                             + "LIMIT " + limit;
             // Execute SQL statement
@@ -199,10 +199,10 @@ class CapitalCity extends City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population, "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.population "
                             + "FROM city ci "
-                            + "WHERE continent = " + '\'' + regionName + '\''
                             + "INNER JOIN country ON ci.ID=country.capital "
+                            + " WHERE continent = " + '\'' + regionName + '\''
                             + "ORDER BY ci.population DESC "
                             + "LIMIT " + limit;
             // Execute SQL statement

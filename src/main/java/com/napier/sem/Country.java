@@ -4,7 +4,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 // Still to be used this class
-class Country {
+public class Country {
+
     public String code;
     public String name;
     public String continent;
@@ -25,8 +26,9 @@ class Country {
      *
      * @param country the country who
      */
-    private void printCountry(Country country) {
+    public String printCountry(Country country) {
         System.out.println(country.code + "\t" + country.name + "\t" + country.continent + "\t" + country.region);
+        return country.name;
     }
 
 
@@ -35,36 +37,30 @@ class Country {
      *
      * @param strSelect SQL query
      */
-    private void makeDatabaseCall(String strSelect) {
+    private ResultSet makeDatabaseCall(String strSelect) {
+
+        ResultSet rset;
+
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
             // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
+            rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
             // Check one is returned
-            while (rset.next()) {
-                Country country = new Country();
-                country.code = rset.getString("code");
-                country.name = rset.getString("name");
-                country.continent = rset.getString("continent");
-                country.region = rset.getString("region");
-                country.population = rset.getInt("population");
-                country.capital = rset.getInt("capital");
-
-                printCountry(country);
-            }
+            return rset;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
         }
+        return null;
     }
 
     /**
      * Provides all the countries in the world organised by largest population to smallest.
      */
-    public void getCountriesByPopulationDESC(int limit) {
+    public ResultSet getCountriesByPopulationDESC(int limit) {
 
         String strSelect;
 
@@ -78,46 +74,50 @@ class Country {
                     + "ORDER BY Population DESC "
                     + "LIMIT " + limit;
         }
-        makeDatabaseCall(strSelect);
+        return makeDatabaseCall(strSelect);
     }
 
     /**
      * Provides All the countries in a continent organised by largest population to smallest.
      */
-    public void getCountriesOnContinentByPopulationDESC(int limit) {
+    public ResultSet getCountriesOnContinentByPopulationDESC(int limit, String population) {
 
         String strSelect;
 
         if (limit == 0) {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
+                    + "where region = "  + '\'' + population + '\''
                     + "ORDER BY Population DESC ";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
+                    + "where region = "  + '\'' + population + '\''
                     + "ORDER BY Population DESC "
-                    + " LIMIT " + limit;
+                    + "LIMIT " + limit;
         }
-        makeDatabaseCall(strSelect);
+        return makeDatabaseCall(strSelect);
     }
 
     /**
      * Provides all the countries in a region organised by largest population to smallest.
      */
-    public void getCountriesInRegionByPopulationDESC(int limit) {
+    public ResultSet getCountriesInRegionByPopulationDESC(int limit, String region) {
 
         String strSelect;
 
         if (limit == 0) {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
+                    + "where region = "  + '\'' + region + '\''
                     + "ORDER BY Population DESC ";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
+                    + "where region = "  + '\'' + region + '\''
                     + "ORDER BY Population DESC "
                     + "LIMIT " + limit;
         }
-        makeDatabaseCall(strSelect);
+        return makeDatabaseCall(strSelect);
     }
 }

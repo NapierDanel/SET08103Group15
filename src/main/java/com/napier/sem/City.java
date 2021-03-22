@@ -7,7 +7,7 @@ import java.sql.Statement;
 /**
  * The City class contains the methods for manipulating the database and retrieving out the requested data
  */
-class City {
+public class City {
 
     /**
      * Allows for a data structure of type city to be created
@@ -139,11 +139,10 @@ class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "Select City.Name, City.Population "
+                    "Select city.Name, city.Population "
                             + "FROM city "
-                            + "INNER JOIN Countries ON city.CountryCode = country.Code "
-                            + "WHERE country.continent = "
-                            + continent
+                            + "INNER JOIN country ON city.CountryCode = country.Code "
+                            + "WHERE country.Continent = " + '\'' + continent + '\''
                             + " "
                             + "ORDER BY city.Population DESC "
                             + limit;
@@ -192,13 +191,12 @@ class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "Select City.Name, City.Population "
+                    "Select city.Name, city.Population "
                             + "FROM city "
-                            + "INNER JOIN Countries ON city.CountryCode = country.Code "
-                            + "WHERE country.Region = "
-                            + region
+                            + "INNER JOIN country ON city.CountryCode = country.Code "
+                            + "WHERE country.Region = " + '\'' + region + '\''
                             + " "
-                            + "ORDER BY city.Population DESC"
+                            + "ORDER BY city.Population DESC "
                             + limit;
 
             // Execute SQL statement
@@ -247,11 +245,10 @@ class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "Select City.Name, City.Population "
+                    "Select city.Name, city.Population "
                             + "FROM city "
-                            + "INNER JOIN Countries ON city.CountryCode = country.Code "
-                            + "WHERE country.Name = "
-                            + country
+                            + "INNER JOIN country ON city.CountryCode = country.Code "
+                            + "WHERE country.Name = " + '\'' + country + '\''
                             + " "
                             + "ORDER BY city.Population DESC "
                             + limit;
@@ -304,8 +301,7 @@ class City {
             String strSelect =
                     "Select Name, Population "
                             + "FROM city "
-                            + "WHERE district = "
-                            + district
+                            + "WHERE District = " + '\'' + district + '\''
                             + " "
                             + "ORDER BY Population DESC "
                             + limit;
