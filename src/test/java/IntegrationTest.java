@@ -155,7 +155,7 @@ public class IntegrationTest {
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given region with a set limit.")
-    void get CapCityRegPopLimit()
+    void getCapCityRegPopLimit()
     {
         assertNotNull(capitalcity.getCapCityRegPopLimit("Eastern Europe", "10"));
     }
