@@ -6,14 +6,12 @@ import org.junit.jupiter.api.Test;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class UnitTest {
 
-
     static Country wakanda;
-
 
     @BeforeAll
     static void init(){
@@ -35,17 +33,11 @@ public class UnitTest {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @Test
+    @DisplayName("Test country exceptions")
+    void testCountyExceptions() {
+        assertThrows(NullPointerException.class, () -> {
+            wakanda.printCountry(null);
+        });
+    }
 }

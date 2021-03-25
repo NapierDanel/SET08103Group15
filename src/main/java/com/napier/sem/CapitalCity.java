@@ -7,42 +7,6 @@ import java.util.Scanner;
 
 // This class will create the CapitalCity objects, for later use
 public class CapitalCity extends City {
-    /**
-     * Uses the data from city to create capital city reports
-     * @param id
-     * @return
-     */
-
-    public CapitalCity getCapitalCity(int id) {
-        try {
-            // Create an SQL statement
-            Statement stmt = DatabaseLink.connInstance().createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT id, name, countryCode, district, population "
-                            + "FROM city "
-                            + "WHERE id = " + id;
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next()) {
-                CapitalCity capcity = new CapitalCity();
-                capcity.id = rset.getInt("id");
-                capcity.name = rset.getString("name");
-                capcity.countryCode = rset.getString("countryCode");
-                capcity.population = rset.getInt("population");
-
-
-                return capcity;
-            } else
-                return null;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get Capital City details");
-            return null;
-        }
-    }
 
     /**
      * Output the highest to lowest populated capital cities in the world
