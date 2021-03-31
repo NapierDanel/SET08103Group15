@@ -100,8 +100,8 @@ public class Population {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -150,8 +150,8 @@ public class Population {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -174,8 +174,8 @@ public class Population {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -199,8 +199,8 @@ public class Population {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -222,8 +222,8 @@ public class Population {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -245,8 +245,8 @@ public class Population {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -268,8 +268,8 @@ public class Population {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
+            return null;
         }
-        return null;
     }
 
 }
