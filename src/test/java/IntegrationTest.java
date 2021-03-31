@@ -141,10 +141,24 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given continent.")
+    void getFailCapCityContPop()
+    {
+        assertNull(capitalcity.getCapCityContPop("来国子"));
+    }
+
+    @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given region.")
     void getCapCityRegPop()
     {
         assertNotNull(capitalcity.getCapCityRegPop("Eastern Europe"));
+    }
+
+    @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given region.")
+    void getFailCapCityRegPop()
+    {
+        assertNull(capitalcity.getCapCityRegPop("来国子"));
     }
 
     @Test
@@ -155,6 +169,13 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a the world with a set limit.")
+    void getFailCapCityWorldPopLimit()
+    {
+        assertNull(capitalcity.getCapCityWorldPopLimit("来国子"));
+    }
+
+    @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given continent with a set limit.")
     void getCapCityContPopLimit()
     {
@@ -162,10 +183,24 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given continent with a set limit.")
+    void getFailCapCityContPopLimit()
+    {
+        assertNull(capitalcity.getCapCityContPopLimit("来国子", "来国子"));
+    }
+
+    @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given region with a set limit.")
     void getCapCityRegPopLimit()
     {
         assertNotNull(capitalcity.getCapCityRegPopLimit("Eastern Europe", "10"));
+    }
+
+    @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given region with a set limit.")
+    void getFailCapCityRegPopLimit()
+    {
+        assertNull(capitalcity.getCapCityRegPopLimit("来国子", "来国子"));
     }
 
     // City Tests
