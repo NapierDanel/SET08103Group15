@@ -98,7 +98,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the continent population exceptions")
     void testGetContinentPopulationExceptions() {
-        assertNull(population.getContinentPopulation("null"));
+        assertNull(population.getContinentPopulation("§$%€!%"));
     }
 
     @Test
@@ -110,7 +110,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the region population exceptions")
     void testGetRegionPopulationExceptions() {
-        assertNull(population.getRegionPopulation(null));
+        assertNull(population.getRegionPopulation("§$%€!%"));
     }
 
     @Test
@@ -122,7 +122,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the country population exceptions")
     void testGetCountryPopulationExceptions() {
-        assertNull(population.getCountryPopulation("null"));
+        assertNull(population.getCountryPopulation("§$%€!%"));
     }
 
     // Capital City Tests
@@ -208,7 +208,7 @@ public class IntegrationTest {
 
     @Test
     @DisplayName("Provides all the cities in a continent organised by largest population to smallest with bad Input")
-    void getCitiesInContinentDESCTestExceptions() {assertNull(city.getCitiesInContinent("&&%�", "10"));}
+    void getCitiesInContinentDESCTestExceptions() {assertNull(city.getCitiesInContinent("fsdsef", "dasa"));}
 
 
     @Test
@@ -222,7 +222,7 @@ public class IntegrationTest {
     @DisplayName("Provides all the cities in a region organised by largest population to smallest with bad input")
     void getCitiesInRegionDESCTestExceptions()
     {
-        assertNull(city.getCitiesInRegion("�**&", ""));
+        assertNull(city.getCitiesInRegion("", ""));
     }
 
 
@@ -237,7 +237,7 @@ public class IntegrationTest {
     @DisplayName("Provides all the cities in a country organised by largest population to smallest with bad input")
     void getCitiesInCountryDESCTestExceptions()
     {
-        assertNull(city.getCitiesInCountry("jjnajndjwndjasda", "%$$�"));
+        assertNotNull(city.getCitiesInCountry("jjnajndjwndjasda", ""));
     }
 
 
@@ -253,7 +253,7 @@ public class IntegrationTest {
     @DisplayName("Provides all the cities in a district organised by largest population to smallest with bad input")
     void getCitiesInDistrictDESCTestExceptions()
     {
-        assertNull(city.getCitiesInDistrict("Distrito Federal", ""));
+        assertNotNull(city.getCitiesInDistrict("Distrito Federal", ""));
     }
 
 }
