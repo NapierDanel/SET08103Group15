@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IntegrationTest {
     static Population population;
@@ -190,10 +189,24 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given continent.")
+    void getFailCapCityContPop()
+    {
+        assertNull(capitalcity.getCapCityContPop("#$£*"));
+    }
+
+    @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given region.")
     void getCapCityRegPop()
     {
         assertNotNull(capitalcity.getCapCityRegPop("Eastern Europe"));
+    }
+
+    @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given region.")
+    void getFailCapCityRegPop()
+    {
+        assertNull(capitalcity.getCapCityRegPop("#$£*"));
     }
 
     @Test
@@ -204,6 +217,13 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a the world with a set limit.")
+    void getFailCapCityWorldPopLimit()
+    {
+        assertNull(capitalcity.getCapCityWorldPopLimit("#$£*"));
+    }
+
+    @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given continent with a set limit.")
     void getCapCityContPopLimit()
     {
@@ -211,10 +231,24 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given continent with a set limit.")
+    void getFailCapCityContPopLimit()
+    {
+        assertNull(capitalcity.getCapCityContPopLimit("#$£*", "#$£*"));
+    }
+
+    @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given region with a set limit.")
     void getCapCityRegPopLimit()
     {
         assertNotNull(capitalcity.getCapCityRegPopLimit("Eastern Europe", "10"));
+    }
+
+    @Test
+    @DisplayName("Display the highest to lowest populated capital cities in a given region with a set limit.")
+    void getFailCapCityRegPopLimit()
+    {
+        assertNull(capitalcity.getCapCityRegPopLimit("#$£*", "#$£*"));
     }
 
     // City Tests
