@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class IntegrationTest {
     static Population population;
@@ -70,15 +71,39 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Test the continent population proportion of people living in cities exceptions")
+    void testGetContinentPopulationProportionInCitiesExceptions() {
+        assertThrows(NullPointerException.class, () -> {
+            population.getContinentPopulationProportionInCities(null);
+        });
+    }
+
+    @Test
     @DisplayName("Return the region population proportion of people living in cities.")
     void getRegionPopulationProportionInCitiesTest() throws SQLException {
         assertNotNull(population.getRegionPopulationProportionInCities("Southeast Asia"));
     }
 
     @Test
+    @DisplayName("Test the region population proportion of people living in cities exceptions")
+    void testGetRegionPopulationProportionInCitiesExceptions() {
+        assertThrows(NullPointerException.class, () -> {
+            population.getRegionPopulationProportionInCities(null);
+        });
+    }
+
+    @Test
     @DisplayName("Return the country population proportion of people living in cities.")
     void getCountryPopulationProportionInCities() {
         assertNotNull(population.getCountryPopulationProportionInCities("SAU"));
+    }
+
+    @Test
+    @DisplayName("Test the country population proportion of people living in cities exceptions")
+    void testGetCountryPopulationProportionInCitiesExceptions() {
+        assertThrows(NullPointerException.class, () -> {
+            population.getCountryPopulationProportionInCities(null);
+        });
     }
 
     @Test
@@ -94,9 +119,25 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Test the continent population exceptions")
+    void testGetContinentPopulationExceptions() {
+        assertThrows(NullPointerException.class, () -> {
+            population.getContinentPopulation(null);
+        });
+    }
+
+    @Test
     @DisplayName("Return the region population.")
     void getRegionPopulationTest() {
         assertNotNull(population.getRegionPopulation("Eastern Europe"));
+    }
+
+    @Test
+    @DisplayName("Test the region population exceptions")
+    void testGetRegionPopulationExceptions() {
+        assertThrows(NullPointerException.class, () -> {
+            population.getRegionPopulation(null);
+        });
     }
 
     @Test
@@ -106,9 +147,25 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Test the country population exceptions")
+    void testGetCountryPopulationExceptions() {
+        assertThrows(NullPointerException.class, () -> {
+            population.getCountryPopulation(null);
+        });
+    }
+
+    @Test
     @DisplayName("Return the district population.")
     void getDistrictPopulationTest() {
         assertNotNull(population.getDistrictPopulation("Rio Grande do Norte"));
+    }
+
+    @Test
+    @DisplayName("Test the district population exceptions")
+    void testGetDistrictPopulationExceptions() {
+        assertThrows(NullPointerException.class, () -> {
+            population.getDistrictPopulation(null);
+        });
     }
 
     @Test
