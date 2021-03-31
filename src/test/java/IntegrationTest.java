@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class IntegrationTest {
@@ -226,11 +227,27 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Get a city with bad ID")
+    void getCityTestExceptions()
+    {
+        assertNull(city.getCity(123123123));
+    }
+
+
+    @Test
     @DisplayName("Provides all the cities in the world organised by largest population to smallest")
     void getAllCitiesInWorldDescTest()
     {
         assertNotNull(city.getAllCitiesInWorld("20"));
     }
+
+    @Test
+    @DisplayName("Provides all the cities in the world organised by largest population to smallest with Bad Input")
+    void getAllCitiesInWorldDescTestExceptions()
+    {
+        assertNull(city.getAllCitiesInWorld(""));
+    }
+
 
     @Test
     @DisplayName("Provides all the cities in a continent organised by largest population to smallest")
@@ -240,11 +257,24 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Provides all the cities in a continent organised by largest population to smallest with bad Input")
+    void getCitiesInContinentDESCTestExceptions() {assertNull(city.getCitiesInContinent("fsdsef", "dasa"));}
+
+
+    @Test
     @DisplayName("Provides all the cities in a region organised by largest population to smallest")
     void getCitiesInRegionDESCTest()
     {
         assertNotNull(city.getCitiesInRegion("Western Europe", "10"));
     }
+
+    @Test
+    @DisplayName("Provides all the cities in a region organised by largest population to smallest with bad input")
+    void getCitiesInRegionDESCTestExceptions()
+    {
+        assertNull(city.getCitiesInRegion("", ""));
+    }
+
 
     @Test
     @DisplayName("Provides all the cities in a country organised by largest population to smallest")
@@ -254,11 +284,26 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Provides all the cities in a country organised by largest population to smallest with bad input")
+    void getCitiesInCountryDESCTestExceptions()
+    {
+        assertNotNull(city.getCitiesInCountry("jjnajndjwndjasda", ""));
+    }
+
+
+
+    @Test
     @DisplayName("Provides all the cities in a district organised by largest population to smallest")
     void getCitiesInDistrictDESCTest()
     {
         assertNotNull(city.getCitiesInDistrict("Distrito Federal", "2"));
     }
 
+    @Test
+    @DisplayName("Provides all the cities in a district organised by largest population to smallest with bad input")
+    void getCitiesInDistrictDESCTestExceptions()
+    {
+        assertNotNull(city.getCitiesInDistrict("Distrito Federal", ""));
+    }
 
 }
