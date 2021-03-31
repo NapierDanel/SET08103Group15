@@ -98,7 +98,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the continent population exceptions")
     void testGetContinentPopulationExceptions() {
-        assertNull(population.getContinentPopulation(null));
+        assertNull(population.getContinentPopulation("§$%€!%"));
     }
 
     @Test
@@ -110,7 +110,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the region population exceptions")
     void testGetRegionPopulationExceptions() {
-        assertNull(population.getRegionPopulation(null));
+        assertNull(population.getRegionPopulation("§$%€!%"));
     }
 
     @Test
@@ -122,7 +122,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the country population exceptions")
     void testGetCountryPopulationExceptions() {
-        assertNull(population.getCountryPopulation(null));
+        assertNull(population.getCountryPopulation("§$%€!%"));
     }
 
     // Capital City Tests
