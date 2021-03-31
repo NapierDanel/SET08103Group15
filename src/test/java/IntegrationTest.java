@@ -73,7 +73,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the continent population proportion of people living in cities exceptions")
     void testGetContinentPopulationProportionInCitiesExceptions() {
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(Exception.class, () -> {
             population.getContinentPopulationProportionInCities(null);
         });
     }
@@ -87,7 +87,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the region population proportion of people living in cities exceptions")
     void testGetRegionPopulationProportionInCitiesExceptions() {
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(Exception.class, () -> {
             population.getRegionPopulationProportionInCities(null);
         });
     }
@@ -101,7 +101,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the country population proportion of people living in cities exceptions")
     void testGetCountryPopulationProportionInCitiesExceptions() {
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(Exception.class, () -> {
             population.getCountryPopulationProportionInCities(null);
         });
     }
@@ -121,7 +121,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the continent population exceptions")
     void testGetContinentPopulationExceptions() {
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(Exception.class, () -> {
             population.getContinentPopulation(null);
         });
     }
@@ -135,7 +135,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the region population exceptions")
     void testGetRegionPopulationExceptions() {
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(Exception.class, () -> {
             population.getRegionPopulation(null);
         });
     }
@@ -149,7 +149,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the country population exceptions")
     void testGetCountryPopulationExceptions() {
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(Exception.class, () -> {
             population.getCountryPopulation(null);
         });
     }
@@ -163,7 +163,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the district population exceptions")
     void testGetDistrictPopulationExceptions() {
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(Exception.class, () -> {
             population.getDistrictPopulation(null);
         });
     }
