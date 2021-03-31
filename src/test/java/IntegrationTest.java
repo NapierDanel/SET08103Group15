@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class IntegrationTest {
     static Population population;
@@ -98,7 +97,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the continent population exceptions")
     void testGetContinentPopulationExceptions() {
-        assertNull(population.getContinentPopulation("§$%€!%"));
+        assertNull(population.getContinentPopulation("§$学%"));
     }
 
     @Test
@@ -110,7 +109,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the region population exceptions")
     void testGetRegionPopulationExceptions() {
-        assertNull(population.getRegionPopulation("§$%€!%"));
+        assertNull(population.getRegionPopulation("§°°^^是是是#$学中文%€!%~~~"));
     }
 
     @Test
@@ -122,7 +121,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the country population exceptions")
     void testGetCountryPopulationExceptions() {
-        assertNull(population.getCountryPopulation("§$%€!%"));
+        assertNull(population.getCountryPopulation("§$%€❁❁!£**%"));
     }
 
     // Capital City Tests
@@ -237,7 +236,7 @@ public class IntegrationTest {
     @DisplayName("Provides all the cities in a country organised by largest population to smallest with bad input")
     void getCitiesInCountryDESCTestExceptions()
     {
-        assertNotNull(city.getCitiesInCountry("jjnajndjwndjasda", ""));
+        assertNull(city.getCitiesInCountry("jjnajndjwndjasda", ""));
     }
 
 
@@ -253,7 +252,7 @@ public class IntegrationTest {
     @DisplayName("Provides all the cities in a district organised by largest population to smallest with bad input")
     void getCitiesInDistrictDESCTestExceptions()
     {
-        assertNotNull(city.getCitiesInDistrict("Distrito Federal", ""));
+        assertNull(city.getCitiesInDistrict("Distrito Federal", ""));
     }
 
 }
