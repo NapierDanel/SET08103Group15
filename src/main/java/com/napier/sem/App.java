@@ -17,27 +17,33 @@ public class App {
         // Create a new DatabaseLink class, containing connect and disconnect functionality, and database interactions
         DatabaseLink db = new DatabaseLink();
 
+        // Create a new UtilityClass class, containing some useful methods
+        UtilityClass uc = new UtilityClass();
+
         // Connects to the database
         DatabaseLink.connInstance();
 
         // The following code gives an example of how the ResultSet datatype will be accessed
-        City c = new City();
+        City city = new City();
+        Country country = new Country();
+        CapitalCity capitalCity = new CapitalCity();
+        Population population = new Population();
 
-        ResultSet rset = c.getAllCitiesInWorld("20");
 
-        try
-        {
-            while (rset.next())
-            {
-                System.out.println(rset.getString("name") + "    " + rset.getInt("population"));
-            }
+        // City Reports
 
-            System.out.println("Output complete");
-        }
-        catch (Exception e)
-        {
-            System.out.println("Not working");
-        }
+        uc.exportCSV("noice", city.getAllCitiesInWorld("20"));
+
+
+
+        // Country Report
+
+        // CapitalCity Reports
+
+        // Population Reports
+
+
+
 
         // Disconnect from database
         db.disconnect();
