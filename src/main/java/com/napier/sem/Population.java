@@ -19,7 +19,7 @@ public class Population {
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT co.Continent, continentPop.Population, LTRIM(cityPop.Population) AS 'LivingInCities', (cityPop.Population * 100 / continentPop.Population) AS 'LivingInCitiesPercent', (continentPop.Population - cityPop.Population) AS 'LivingOutsideCities', ((continentPop.Population - cityPop.Population) * 100 / continentPop.Population) AS 'LivingOutsideCitiesPercent'"
+                    "SELECT co.Continent, continentPop.Population, cityPop.Population AS 'LivingInCities', (cityPop.Population * 100 / continentPop.Population) AS 'LivingInCitiesPercent', (continentPop.Population - cityPop.Population) AS 'LivingOutsideCities', ((continentPop.Population - cityPop.Population) * 100 / continentPop.Population) AS 'LivingOutsideCitiesPercent'"
                             + "FROM country co, city ci, (SELECT SUM(ci.population) AS Population FROM country co, city ci WHERE co.continent =  " + '\'' + continent + '\'' + " AND co.Code = ci.CountryCode) AS cityPop, (SELECT SUM(population) AS Population FROM country WHERE continent = " + '\'' + continent + '\'' + ") AS continentPop "
                             + "WHERE co.Region = " + '\'' + continent + '\''
                             + "AND co.Code = ci.CountryCode "
@@ -44,7 +44,7 @@ public class Population {
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT co.Region, regionPop.Population, LTRIM(cityPop.Population) AS 'LivingInCities', (cityPop.Population * 100 / regionPop.Population) AS 'LivingInCitiesPercent', (regionPop.Population - cityPop.Population) AS 'LivingOutsideCities', ((regionPop.Population - cityPop.Population) * 100 / regionPop.Population) AS 'LivingOutsideCitiesPercent'"
+                    "SELECT co.Region, regionPop.Population, cityPop.Population AS 'LivingInCities', (cityPop.Population * 100 / regionPop.Population) AS 'LivingInCitiesPercent', (regionPop.Population - cityPop.Population) AS 'LivingOutsideCities', ((regionPop.Population - cityPop.Population) * 100 / regionPop.Population) AS 'LivingOutsideCitiesPercent'"
                             + "FROM country co, city ci, (SELECT SUM(ci.population) AS Population FROM country co, city ci WHERE co.region ="  + '\'' + region + '\'' + " AND co.Code = ci.CountryCode) AS cityPop, (SELECT SUM(population) AS Population FROM country WHERE region = "  + '\'' + region + '\'' + " ) AS regionPop "
                             + "WHERE co.Region = " + '\'' + region + '\''
                             + "AND co.Code = ci.CountryCode "
@@ -69,7 +69,7 @@ public class Population {
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT co.name, co.population, LTRIM(cityPop.Population) AS 'LivingInCities', (SUM(ci.Population) * 100 / co.Population) AS 'LivingInCitiesPercent', (co.Population - SUM(ci.Population)) AS 'LivingOutsideCities', ((co.Population - SUM(ci.Population)) * 100 / co.Population) AS 'LivingOutsideCitiesPercent'"
+                    "SELECT co.name, co.population, cityPop.Population AS 'LivingInCities', (SUM(ci.Population) * 100 / co.Population) AS 'LivingInCitiesPercent', (co.Population - SUM(ci.Population)) AS 'LivingOutsideCities', ((co.Population - SUM(ci.Population)) * 100 / co.Population) AS 'LivingOutsideCitiesPercent'"
                             + "FROM country co, city ci "
                             + "WHERE co.code = " + '\'' + code + '\''
                             + "AND co.Code = ci.CountryCode";
