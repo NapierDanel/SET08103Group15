@@ -66,7 +66,9 @@ public class UtilityClass {
         }
         catch (Exception e)
         {
-            System.out.println("Not working");
+            System.out.println("Not working, this is the error");
+
+            System.out.println(e.toString());
         }
 
 

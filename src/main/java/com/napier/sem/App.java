@@ -32,11 +32,11 @@ public class App {
 
         // City Reports
 
-        uc.exportCSV("noice", city.getAllCitiesInWorld("20"));
-        uc.exportCSV("noice2", city.getCitiesInContinent("Asia","20"));
-        uc.exportCSV("noice3", city.getCitiesInRegion("Southern Europe","20"));
-        uc.exportCSV("noice4", city.getCitiesInCountry("Singapore","20"));
-        uc.exportCSV("noice5", city.getCitiesInDistrict("Abu Dhabi","20"));
+        uc.exportCSV("allCitiesInWorldReport", city.getAllCitiesInWorld("20"));
+        uc.exportCSV("citiesInContinentReport", city.getCitiesInContinent("Asia","20"));
+        uc.exportCSV("citiesInRegionReport", city.getCitiesInRegion("Southern Europe","20"));
+        uc.exportCSV("citiesInCountryReport", city.getCitiesInCountry("Singapore","20"));
+        uc.exportCSV("citiesInDistrictReport", city.getCitiesInDistrict("Abu Dhabi","20"));
 
 
 

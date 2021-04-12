@@ -23,7 +23,8 @@ public class Population {
                     "SELECT co.Continent, continentPop.Population, cityPop.Population AS 'inCities', (cityPop.Population * 100 / continentPop.Population) AS 'inCitiesPer', (continentPop.Population - cityPop.Population) AS 'notInCities', ((continentPop.Population - cityPop.Population) * 100 / continentPop.Population) AS 'notInCitiesPer'"
                             + "FROM country co, city ci, (SELECT SUM(ci.population) AS Population FROM country co, city ci WHERE co.continent =  " + '\'' + continent + '\'' + " AND co.Code = ci.CountryCode) AS cityPop, (SELECT SUM(population) AS Population FROM country WHERE continent = " + '\'' + continent + '\'' + ") AS continentPop "
                             + "WHERE co.Region = " + '\'' + continent + '\''
-                            + "AND co.Code = ci.CountryCode";
+                            + "AND co.Code = ci.CountryCode "
+                            + "LIMIT 1";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             return rset;
@@ -48,7 +49,8 @@ public class Population {
                     "SELECT co.Region, regionPop.Population, cityPop.Population AS 'inCities', (cityPop.Population * 100 / regionPop.Population) AS 'inCitiesPer', (regionPop.Population - cityPop.Population) AS 'notInCities', ((regionPop.Population - cityPop.Population) * 100 / regionPop.Population) AS 'notInCitiesPer'"
                             + "FROM country co, city ci, (SELECT SUM(ci.population) AS Population FROM country co, city ci WHERE co.region ="  + '\'' + region + '\'' + " AND co.Code = ci.CountryCode) AS cityPop, (SELECT SUM(population) AS Population FROM country WHERE region = "  + '\'' + region + '\'' + " ) AS regionPop "
                             + "WHERE co.Region = " + '\'' + region + '\''
-                            + "AND co.Code = ci.CountryCode";
+                            + "AND co.Code = ci.CountryCode "
+                            + "LIMIT 1";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             return rset;
