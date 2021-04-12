@@ -13,20 +13,23 @@ public class Population {
      * Output the population of people on the continent living in cities and living outside of cities in numbers and percentages
      * @param continent the continent name
      */
-    public String getContinentPopulationProportionInCities(String continent) throws SQLException {
-        ResultSet rsContPop = getContinentPopulation(continent);
-        if(rsContPop.next()) {
-            int continentPopulation = rsContPop.getInt("population");
-            int populationInCities = getCityPopulationInContinent(continent);
-            int populationOutsideCities = continentPopulation - populationInCities;
-            float percentInCities = (populationInCities * 100.0f) / continentPopulation;
-            float percentOutsideCities = ((populationOutsideCities * 100.0f) / continentPopulation);
-            return (continent + "    " +
-                    continentPopulation + "    " +
-                    populationInCities + "    " +
-                    percentInCities + "    " +
-                    populationOutsideCities + "    " +
-                    percentOutsideCities);
+    public ResultSet getContinentPopulationProportionInCities(String continent) {
+        try {
+            // Create an SQL statement
+            Statement stmt = DatabaseLink.connInstance().createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT co.Continent, continentPop.Population, cityPop.Population AS 'inCities', (cityPop.Population * 100 / continentPop.Population) AS 'inCitiesPer', (continentPop.Population - cityPop.Population) AS 'notInCities', ((continentPop.Population - cityPop.Population) * 100 / continentPop.Population) AS 'notInCitiesPer'"
+                            + "FROM country co, city ci, (SELECT SUM(ci.population) AS Population FROM country co, city ci WHERE co.continent =  " + '\'' + continent + '\'' + " AND co.Code = ci.CountryCode) AS cityPop, (SELECT SUM(population) AS Population FROM country WHERE continent = " + '\'' + continent + '\'' + ") AS continentPop "
+                            + "WHERE co.Region = " + '\'' + continent + '\''
+                            + "AND co.Code = ci.CountryCode "
+                            + "GROUP BY co.Continent";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            return rset;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get continent details");
         }
         return null;
     }
@@ -35,21 +38,23 @@ public class Population {
      * Output the population of people in the region living in cities and living outside of cities in numbers and percentages
      * @param region the region name
      */
-    public String getRegionPopulationProportionInCities(String region) throws SQLException {
-        ResultSet rsRegPop = getRegionPopulation(region);
-        ResultSet rsCityPop = getCityPopulationInRegion(region);
-        if(rsRegPop.next() && rsCityPop.next()) {
-        int regionPopulation = rsRegPop.getInt("population");
-        int populationInCities = rsCityPop.getInt("population");
-        int populationOutsideCities = regionPopulation - populationInCities;
-        float percentInCities = (populationInCities * 100.0f) / regionPopulation;
-        float percentOutsideCities = ((populationOutsideCities * 100.0f) / regionPopulation);
-        return (region + "    " +
-                regionPopulation + "    " +
-                populationInCities + "    " +
-                percentInCities + "    " +
-                populationOutsideCities + "    " +
-                percentOutsideCities);
+    public ResultSet getRegionPopulationProportionInCities(String region) {
+        try {
+            // Create an SQL statement
+            Statement stmt = DatabaseLink.connInstance().createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT co.Region, regionPop.Population, cityPop.Population AS 'inCities', (cityPop.Population * 100 / regionPop.Population) AS 'inCitiesPer', (regionPop.Population - cityPop.Population) AS 'notInCities', ((regionPop.Population - cityPop.Population) * 100 / regionPop.Population) AS 'notInCitiesPer'"
+                            + "FROM country co, city ci, (SELECT SUM(ci.population) AS Population FROM country co, city ci WHERE co.region ="  + '\'' + region + '\'' + " AND co.Code = ci.CountryCode) AS cityPop, (SELECT SUM(population) AS Population FROM country WHERE region = "  + '\'' + region + '\'' + " ) AS regionPop "
+                            + "WHERE co.Region = " + '\'' + region + '\''
+                            + "AND co.Code = ci.CountryCode "
+                            + "GROUP BY co.Region";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            return rset;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get region details");
         }
         return null;
     }
@@ -76,61 +81,6 @@ public class Population {
             System.out.println("Failed to get country details");
         }
         return null;
-    }
-
-    /**
-     * Return the population of people in the region living in cities
-     * @param region the region name
-     * @return the city population in given region
-     */
-    public ResultSet getCityPopulationInRegion(String region){
-        try {
-            int population;
-            // Create an SQL statement
-            Statement stmt = DatabaseLink.connInstance().createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT SUM(ci.Population) AS population "
-                            + "FROM country co, city ci "
-                            + "WHERE co.region = " + '\''+ region + '\''
-                            + "AND co.Code = ci.CountryCode";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            return rset;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get country details");
-            return null;
-        }
-    }
-
-    /**
-     * Return the population of people in the continent living in cities
-     * @param continent the continent name
-     * @return the city population in given continent
-     */
-    public int getCityPopulationInContinent(String continent){
-        try {
-            int population;
-            // Create an SQL statement
-            Statement stmt = DatabaseLink.connInstance().createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT SUM(ci.Population) AS population "
-                            + "FROM country co, city ci "
-                            + "WHERE co.continent = " + '\''+ continent + '\''
-                            + "AND co.Code = ci.CountryCode";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if (rset.next()) {
-                return rset.getInt("population");
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get country details");
-            return 0;
-        }
-        return 0;
     }
 
     /**
@@ -253,7 +203,7 @@ public class Population {
      * Output the population of the city
      * @param id the city id
      */
-    public ResultSet getCityPopulation(int id) {
+    public ResultSet getCityPopulation(String id) {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
