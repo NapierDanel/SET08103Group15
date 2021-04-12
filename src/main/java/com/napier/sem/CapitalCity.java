@@ -101,8 +101,8 @@ public class CapitalCity extends City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT Name, Population "
-                            + "FROM city "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', Population "
+                            + "FROM city ci "
                             + "ORDER BY Population DESC "
                             + "LIMIT " + limit;
             // Execute SQL statement
