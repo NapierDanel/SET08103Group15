@@ -17,6 +17,7 @@ public class Population {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
+            stmt.executeQuery("set global sql_mode=" + '\'' + '\'');
             // Create string for SQL statement
             String strSelect =
                     "SELECT co.Continent, continentPop.Population, cityPop.Population AS 'inCities', (cityPop.Population * 100 / continentPop.Population) AS 'inCitiesPer', (continentPop.Population - cityPop.Population) AS 'notInCities', ((continentPop.Population - cityPop.Population) * 100 / continentPop.Population) AS 'notInCitiesPer'"
@@ -42,6 +43,7 @@ public class Population {
         try {
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
+            stmt.executeQuery("set global sql_mode=" + '\'' + '\'');
             // Create string for SQL statement
             String strSelect =
                     "SELECT co.Region, regionPop.Population, cityPop.Population AS 'inCities', (cityPop.Population * 100 / regionPop.Population) AS 'inCitiesPer', (regionPop.Population - cityPop.Population) AS 'notInCities', ((regionPop.Population - cityPop.Population) * 100 / regionPop.Population) AS 'notInCitiesPer'"
