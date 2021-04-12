@@ -33,7 +33,7 @@ public class City {
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT id, name, countryCode, district, population "
+                    "SELECT Name, Country, District, Population "
                             + "FROM city "
                             + "WHERE id = " + id;
             // Execute SQL statement
@@ -64,6 +64,7 @@ public class City {
     }
 
 
+
     /**
      * Get all the Cities in the world within the database
      *
@@ -92,7 +93,7 @@ public class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT Name, Population "
+                    "SELECT Name, Country, District, Population "
                             + "FROM city "
                             + "ORDER BY Population DESC "
                             + limit;
