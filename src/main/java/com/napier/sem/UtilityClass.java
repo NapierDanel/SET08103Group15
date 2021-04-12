@@ -31,7 +31,7 @@ public class UtilityClass {
             // It builds the column names for the csv file
             for (int j = 1; j <= numberOfColumns; j++)
             {
-                csvWriter.append(rsmd.getColumnName(j));
+                csvWriter.append(rsmd.getColumnLabel(j));
                 csvWriter.append(",");
 
             }
@@ -47,7 +47,8 @@ public class UtilityClass {
                 // Builds the .csv file
                 for (int i = 1; i <= numberOfColumns; i++)
                 {
-                    csvWriter.append(rset.getString(i));
+
+                    csvWriter.append(rset.getString(i).replace(",", " "));
                     csvWriter.append(",");
 
 

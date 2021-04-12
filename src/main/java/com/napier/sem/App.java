@@ -61,7 +61,7 @@ public class App {
         uc.exportCSV("countryPopulation", population.getCountryPopulation("BGR"));
         uc.exportCSV("districtPopulation", population.getDistrictPopulation("Noord-Holland"));
         uc.exportCSV("cityPopulation", population.getCityPopulation("25"));
-        uc.exportCSV("continentPopulationProportionInCities", population.getContinentPopulationProportionInCities("Africa"));
+        uc.exportCSV("continentPopulationProportionInCities", population.getContinentPopulationProportionInCities("Europe"));
         uc.exportCSV("regionPopulationProportionInCities", population.getRegionPopulationProportionInCities("North America"));
         uc.exportCSV("countryPopulationProportionInCities", population.getCountryPopulationProportionInCities("BGR"));
 

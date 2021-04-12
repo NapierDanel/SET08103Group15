@@ -21,7 +21,7 @@ public class Population {
             String strSelect =
                     "SELECT co.Continent, continentPop.Population, cityPop.Population AS 'LivingInCities', (cityPop.Population * 100 / continentPop.Population) AS 'LivingInCitiesPercent', (continentPop.Population - cityPop.Population) AS 'LivingOutsideCities', ((continentPop.Population - cityPop.Population) * 100 / continentPop.Population) AS 'LivingOutsideCitiesPercent'"
                             + "FROM country co, city ci, (SELECT SUM(ci.population) AS Population FROM country co, city ci WHERE co.continent =  " + '\'' + continent + '\'' + " AND co.Code = ci.CountryCode) AS cityPop, (SELECT SUM(population) AS Population FROM country WHERE continent = " + '\'' + continent + '\'' + ") AS continentPop "
-                            + "WHERE co.Region = " + '\'' + continent + '\''
+                            + "WHERE co.Continent = " + '\'' + continent + '\''
                             + "AND co.Code = ci.CountryCode "
                             + "LIMIT 1";
             // Execute SQL statement
