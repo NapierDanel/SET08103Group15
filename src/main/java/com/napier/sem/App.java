@@ -39,6 +39,13 @@ public class App {
         // Country Report
 
         // CapitalCity Reports
+        uc.exportCSV("capCityWorldPop", capitalCity.getCapCityWorldPop());
+        uc.exportCSV("capCityContPop", capitalCity.getCapCityContPop("Africa"));
+        uc.exportCSV("capCityRegPop", capitalCity.getCapCityRegPop("North America"));
+        uc.exportCSV("capCityWorldPopLimit", capitalCity.getCapCityWorldPopLimit("10"));
+        uc.exportCSV("capCityContPopLimit", capitalCity.getCapCityContPopLimit("Africa", "10"));
+        uc.exportCSV("capCityRegPopLimit", capitalCity.getCapCityRegPopLimit("North America", "10"));
+
 
         // Population Reports
         uc.exportCSV("worldPopulation", population.getWorldPopulation());
