@@ -41,9 +41,15 @@ public class App {
         // CapitalCity Reports
 
         // Population Reports
-
-
-
+        uc.exportCSV("worldPopulation", population.getWorldPopulation());
+        uc.exportCSV("continentPopulation", population.getContinentPopulation("Africa"));
+        uc.exportCSV("regionPopulation", population.getRegionPopulation("North America"));
+        uc.exportCSV("countryPopulation", population.getCountryPopulation("BGR"));
+        uc.exportCSV("districtPopulation", population.getDistrictPopulation("Noord-Holland"));
+        uc.exportCSV("cityPopulation", population.getCityPopulation("25"));
+        uc.exportCSV("continentPopulationProportionInCities", population.getContinentPopulationProportionInCities("Africa"));
+        uc.exportCSV("regionPopulationProportionInCities", population.getRegionPopulationProportionInCities("North America"));
+        uc.exportCSV("countryPopulationProportionInCities", population.getCountryPopulationProportionInCities("BGR"));
 
         // Disconnect from database
         db.disconnect();
