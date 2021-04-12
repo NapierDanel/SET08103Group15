@@ -37,6 +37,9 @@ public class App {
 
 
         // Country Report
+        uc.exportCSV("countryReportsGetCountriesByPopulationDESC", country.getCountriesByPopulationDESC(20));
+        uc.exportCSV("countryReportsGetCountriesInRegionByPopulationDESC", country.getCountriesInRegionByPopulationDESC(20, "North America"));
+        uc.exportCSV("countryReportsGetCountriesOnContinentByPopulationDESC", country.getCountriesOnContinentByPopulationDESC(20, "Africa"));
 
         // CapitalCity Reports
         uc.exportCSV("capCityWorldPop", capitalCity.getCapCityWorldPop());
