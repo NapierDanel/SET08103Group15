@@ -80,19 +80,19 @@ public class Country {
     /**
      * Provides All the countries in a continent organised by largest population to smallest.
      */
-    public ResultSet getCountriesOnContinentByPopulationDESC(int limit, String population) {
+    public ResultSet getCountriesOnContinentByPopulationDESC(int limit, String continent) {
 
         String strSelect;
 
         if (limit == 0) {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
-                    + "where region = "  + '\'' + population + '\''
+                    + "where continent = "  + '\'' + continent + '\''
                     + "ORDER BY Population DESC ";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
-                    + "where region = "  + '\'' + population + '\''
+                    + "where continent = "  + '\'' + continent + '\''
                     + "ORDER BY Population DESC "
                     + "LIMIT " + limit;
         }
