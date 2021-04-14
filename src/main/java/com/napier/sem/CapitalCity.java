@@ -103,6 +103,7 @@ public class CapitalCity extends City {
             String strSelect =
                     "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', Population "
                             + "FROM city ci "
+                            + "INNER JOIN country ON ci.ID=country.capital "
                             + "ORDER BY Population DESC "
                             + "LIMIT " + limit;
             // Execute SQL statement
