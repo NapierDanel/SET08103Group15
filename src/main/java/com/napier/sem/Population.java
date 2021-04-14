@@ -69,7 +69,7 @@ public class Population {
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT co.name, co.population, ci.Population AS 'LivingInCities', (SUM(ci.Population) * 100 / co.Population) AS 'LivingInCitiesPercent', (co.Population - SUM(ci.Population)) AS 'LivingOutsideCities', ((co.Population - SUM(ci.Population)) * 100 / co.Population) AS 'LivingOutsideCitiesPercent'"
+                    "SELECT co.name, co.population, SUM(ci.Population) AS 'LivingInCities', (SUM(ci.Population) * 100 / co.Population) AS 'LivingInCitiesPercent', (co.Population - SUM(ci.Population)) AS 'LivingOutsideCities', ((co.Population - SUM(ci.Population)) * 100 / co.Population) AS 'LivingOutsideCitiesPercent'"
                             + "FROM country co, city ci "
                             + "WHERE co.code = " + '\'' + code + '\''
                             + "AND co.Code = ci.CountryCode "
