@@ -7,7 +7,11 @@ import java.sql.ResultSetMetaData;
 public class UtilityClass {
 
 
-
+    /**
+     * Create a CSV file from a ResultSet
+     * @param filename name of the csv file
+     * @param rset ResultSet from which the csv is created
+     */
     public void exportCSV(String filename, ResultSet rset)
     {
         try
