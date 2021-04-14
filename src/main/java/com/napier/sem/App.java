@@ -30,13 +30,21 @@ public class App {
         Population population = new Population();
 
 
-        // City Reports
+        // City Reports with limits
 
         uc.exportCSV("allCitiesInWorldReport", city.getAllCitiesInWorld("20"));
         uc.exportCSV("citiesInContinentReport", city.getCitiesInContinent("Asia","20"));
         uc.exportCSV("citiesInRegionReport", city.getCitiesInRegion("Southern Europe","20"));
         uc.exportCSV("citiesInCountryReport", city.getCitiesInCountry("Singapore","20"));
         uc.exportCSV("citiesInDistrictReport", city.getCitiesInDistrict("Abu Dhabi","20"));
+
+        // City Reports without limits
+
+        uc.exportCSV("allCitiesInWorldReportNoLimit", city.getAllCitiesInWorld("0"));
+        uc.exportCSV("citiesInContinentReportNoLimit", city.getCitiesInContinent("Asia","0"));
+        uc.exportCSV("citiesInRegionReportNoLimit", city.getCitiesInRegion("Southern Europe","0"));
+        uc.exportCSV("citiesInCountryReportNoLimit", city.getCitiesInCountry("Singapore","0"));
+        uc.exportCSV("citiesInDistrictReportNoLimit", city.getCitiesInDistrict("Abu Dhabi","0"));
 
 
 
