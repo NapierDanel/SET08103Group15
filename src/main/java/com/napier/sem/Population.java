@@ -72,7 +72,8 @@ public class Population {
                     "SELECT co.name, co.population, ci.Population AS 'LivingInCities', (SUM(ci.Population) * 100 / co.Population) AS 'LivingInCitiesPercent', (co.Population - SUM(ci.Population)) AS 'LivingOutsideCities', ((co.Population - SUM(ci.Population)) * 100 / co.Population) AS 'LivingOutsideCitiesPercent'"
                             + "FROM country co, city ci "
                             + "WHERE co.code = " + '\'' + code + '\''
-                            + "AND co.Code = ci.CountryCode";
+                            + "AND co.Code = ci.CountryCode "
+                            + "LIMIT 1";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             return rset;
