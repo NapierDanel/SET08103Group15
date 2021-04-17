@@ -101,10 +101,10 @@ public class CapitalCity extends City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', Population "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.Population "
                             + "FROM city ci "
                             + "INNER JOIN country ON ci.ID=country.capital "
-                            + "ORDER BY Population DESC "
+                            + "ORDER BY ci.Population DESC "
                             + "LIMIT " + limit;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
