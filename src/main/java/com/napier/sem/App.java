@@ -75,6 +75,7 @@ public class App {
         uc.exportCSV("continentPopulationProportionInCities", population.getContinentPopulationProportionInCities("Europe"));
         uc.exportCSV("regionPopulationProportionInCities", population.getRegionPopulationProportionInCities("North America"));
         uc.exportCSV("countryPopulationProportionInCities", population.getCountryPopulationProportionInCities("BGR"));
+        uc.exportCSV("populationOfLanguageSpeakers", population.getPopulationOfLanguageSpeakers());
 
         // Disconnect from database
         db.disconnect();

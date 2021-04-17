@@ -10,8 +10,37 @@ import java.sql.Statement;
 public class Population {
 
     /**
-     * Output the population of people on the continent living in cities and living outside of cities in numbers and percentages
+     * @return the population of people who speak Chinese, English, Hindi, Spanish and Arabic.
+     */
+    public ResultSet getPopulationOfLanguageSpeakers() {
+        try {
+            // Create an SQL statement
+            Statement stmt = DatabaseLink.connInstance().createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT la.Language, ROUND(SUM((co.Population * la.Percentage) / 100)) AS 'Population', (((ROUND(SUM((co.Population * la.Percentage) / 100))) * 100) / (SELECT SUM(country.Population) FROM country)) AS 'WorldPercentage'"
+                            + "FROM countrylanguage la, country co "
+                            + "WHERE (la.Language = 'Chinese' "
+                            + "WHERE la.Language = 'English' "
+                            + "WHERE la.Language = 'Hindi' "
+                            + "WHERE la.Language = 'Spanish' "
+                            + "WHERE la.Language = 'Arabic') "
+                            + "AND la.CountryCode = co.Code "
+                            + "GROUP BY la.Language "
+                            + "ORDER BY Population DESC ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            return rset;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+        }
+        return null;
+    }
+
+    /**
      * @param continent the continent name
+     * @return the population of people on the continent living in cities and living outside of cities in numbers and percentages
      */
     public ResultSet getContinentPopulationProportionInCities(String continent) {
         try {
@@ -35,8 +64,8 @@ public class Population {
     }
 
     /**
-     * Output the population of people in the region living in cities and living outside of cities in numbers and percentages
      * @param region the region name
+     * @return the population of people in the region living in cities and living outside of cities in numbers and percentages
      */
     public ResultSet getRegionPopulationProportionInCities(String region) {
         try {
@@ -60,8 +89,8 @@ public class Population {
     }
 
     /**
-     * Output the population of people in the country living in cities and living outside of cities in numbers and percentages
      * @param code the country code
+     * @return the population of people in the country living in cities and living outside of cities in numbers and percentages
      */
     public ResultSet getCountryPopulationProportionInCities(String code) {
         try {
@@ -85,7 +114,7 @@ public class Population {
     }
 
     /**
-     * Output the world population
+     * @return the world population
      */
     public ResultSet getWorldPopulation() {
         try {
@@ -106,7 +135,6 @@ public class Population {
     }
 
     /**
-     * Return the population of the continent
      * @param continentName the continent name
      * @return the continent population
      */
@@ -130,7 +158,6 @@ public class Population {
     }
 
     /**
-     * Return the population of the region
      * @param regionName the region name
      * @return the region population
      */
@@ -155,8 +182,8 @@ public class Population {
     }
 
     /**
-     * Output the population of the continent
      * @param code the country code
+     * @return the population of the continent
      */
     public ResultSet getCountryPopulation(String code) {
         try {
@@ -178,8 +205,8 @@ public class Population {
     }
 
     /**
-     * Output the population of the district
      * @param districtName the district name
+     * @return the population of the district
      */
     public ResultSet getDistrictPopulation(String districtName) {
         try {
@@ -201,8 +228,8 @@ public class Population {
     }
 
     /**
-     * Output the population of the city
      * @param id the city id
+     * @return the population of the city
      */
     public ResultSet getCityPopulation(String id) {
         try {
