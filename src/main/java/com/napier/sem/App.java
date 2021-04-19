@@ -49,9 +49,9 @@ public class App {
 
 
         // Country Report
-        uc.exportCSV("countryReportsGetCountriesByPopulationDESC", country.getCountriesByPopulationDESC(20));
-        uc.exportCSV("countryReportsGetCountriesInRegionByPopulationDESC", country.getCountriesInRegionByPopulationDESC(20, "North America"));
-        uc.exportCSV("countryReportsGetCountriesOnContinentByPopulationDESC", country.getCountriesOnContinentByPopulationDESC(20, "Africa"));
+        uc.exportCSV("LIMIT countryReportsGetCountriesByPopulationDESC", country.getCountriesByPopulationDESC(20));
+        uc.exportCSV("LIMIT countryReportsGetCountriesInRegionByPopulationDESC", country.getCountriesInRegionByPopulationDESC(20, "North America"));
+        uc.exportCSV("LIMIT countryReportsGetCountriesOnContinentByPopulationDESC", country.getCountriesOnContinentByPopulationDESC(20, "Africa"));
         uc.exportCSV("countryReportsGetCountriesByPopulationDESC", country.getCountriesByPopulationDESC(0));
         uc.exportCSV("countryReportsGetCountriesInRegionByPopulationDESC", country.getCountriesInRegionByPopulationDESC(0, "North America"));
         uc.exportCSV("countryReportsGetCountriesOnContinentByPopulationDESC", country.getCountriesOnContinentByPopulationDESC(0, "Africa"));
