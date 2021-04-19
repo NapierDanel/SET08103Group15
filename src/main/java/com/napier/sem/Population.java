@@ -18,13 +18,13 @@ public class Population {
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT la.Language, ROUND(SUM((co.Population * la.Percentage) / 100)) AS 'Population', (((ROUND(SUM((co.Population * la.Percentage) / 100))) * 100) / (SELECT SUM(country.Population) FROM country)) AS 'WorldPercentage'"
+                    "SELECT la.Language, ROUND(SUM((co.Population * la.Percentage) / 100)) AS 'Population', (((ROUND(SUM((co.Population * la.Percentage) / 100))) * 100) / (SELECT SUM(country.Population) FROM country)) AS 'WorldPercentage' "
                             + "FROM countrylanguage la, country co "
                             + "WHERE (la.Language = 'Chinese' "
-                            + "WHERE la.Language = 'English' "
-                            + "WHERE la.Language = 'Hindi' "
-                            + "WHERE la.Language = 'Spanish' "
-                            + "WHERE la.Language = 'Arabic') "
+                            + "OR la.Language = 'English' "
+                            + "OR la.Language = 'Hindi' "
+                            + "OR la.Language = 'Spanish' "
+                            + "OR la.Language = 'Arabic') "
                             + "AND la.CountryCode = co.Code "
                             + "GROUP BY la.Language "
                             + "ORDER BY Population DESC ";

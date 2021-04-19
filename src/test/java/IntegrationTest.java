@@ -203,20 +203,6 @@ public class IntegrationTest {
     }
 
     // City Tests
-    @Test
-    @DisplayName("Get a city by its ID")
-    void getCityTest()
-    {
-        assertNotNull(city.getCity(1));
-    }
-
-    @Test
-    @DisplayName("Get a city with bad ID")
-    void getCityTestExceptions()
-    {
-        assertNull(city.getCity(123123123));
-    }
-
 
     @Test
     @DisplayName("Provides all the cities in the world organised by largest population to smallest")
