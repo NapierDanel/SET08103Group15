@@ -51,8 +51,9 @@ public class UtilityClass {
                 // Builds the .csv file
                 for (int i = 1; i <= numberOfColumns; i++)
                 {
-
-                    csvWriter.append(rset.getString(i).replace(",", " "));
+                    if(rset.getString(i) != null) {
+                        csvWriter.append(rset.getString(i).replace(",", " "));
+                    }
                     csvWriter.append(",");
 
 
