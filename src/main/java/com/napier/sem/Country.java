@@ -88,11 +88,13 @@ public class Country {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
                     + "where continent = "  + '\'' + continent + '\''
-                    + "ORDER BY Population DESC ";
+                    + " "
+                    + "ORDER BY Population DESC";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
                     + "where continent = "  + '\'' + continent + '\''
+                    + " "
                     + "ORDER BY Population DESC "
                     + "LIMIT " + limit;
         }
@@ -110,11 +112,13 @@ public class Country {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
                     + "where region = "  + '\'' + region + '\''
+                    + " "
                     + "ORDER BY Population DESC ";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
                     + "where region = "  + '\'' + region + '\''
+                    + " "
                     + "ORDER BY Population DESC "
                     + "LIMIT " + limit;
         }

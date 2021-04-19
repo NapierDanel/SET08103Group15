@@ -74,6 +74,8 @@ public class UtilityClass {
         {
             System.out.println("Not working, this is the error");
 
+            System.out.print("The filename is " + filename);
+
             System.out.println(e.toString());
         }
 
