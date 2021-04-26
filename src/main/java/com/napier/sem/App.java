@@ -49,12 +49,12 @@ public class App {
 
 
         // Country Report
-        uc.exportCSV("LIMIT_countryReportsGetCountriesByPopulationDESC", country.getCountriesByPopulationDESC(20));
-        uc.exportCSV("LIMIT_countryReportsGetCountriesInRegionByPopulationDESC", country.getCountriesInRegionByPopulationDESC(20, "North America"));
-        uc.exportCSV("LIMIT_countryReportsGetCountriesOnContinentByPopulationDESC", country.getCountriesOnContinentByPopulationDESC(20, "Africa"));
-        uc.exportCSV("countryReportsGetCountriesByPopulationDESC", country.getCountriesByPopulationDESC(0));
-        uc.exportCSV("countryReportsGetCountriesInRegionByPopulationDESC", country.getCountriesInRegionByPopulationDESC(0,"North America"));
-        uc.exportCSV("countryReportsGetCountriesOnContinentByPopulationDESC", country.getCountriesOnContinentByPopulationDESC(0, "Africa"));
+        uc.exportCSV("LIMIT_countryReportsGetCountriesByPopulationDESC", country.getCountriesByPopulationDESC("20"));
+        uc.exportCSV("LIMIT_countryReportsGetCountriesInRegionByPopulationDESC", country.getCountriesInRegionByPopulationDESC("20", "North America"));
+        uc.exportCSV("LIMIT_countryReportsGetCountriesOnContinentByPopulationDESC", country.getCountriesOnContinentByPopulationDESC("20", "Africa"));
+        uc.exportCSV("countryReportsGetCountriesByPopulationDESC", country.getCountriesByPopulationDESC("0"));
+        uc.exportCSV("countryReportsGetCountriesInRegionByPopulationDESC", country.getCountriesInRegionByPopulationDESC("0","North America"));
+        uc.exportCSV("countryReportsGetCountriesOnContinentByPopulationDESC", country.getCountriesOnContinentByPopulationDESC("0", "Africa"));
 
         // CapitalCity Reports
         uc.exportCSV("capCityWorldPop", capitalCity.getCapCityWorldPop());
