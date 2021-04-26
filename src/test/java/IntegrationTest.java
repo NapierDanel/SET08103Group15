@@ -143,7 +143,7 @@ public class IntegrationTest {
     @DisplayName("Display the highest to lowest populated capital cities in a given continent.")
     void getFailCapCityContPop()
     {
-        assertNull(capitalcity.getCapCityContPop("来国子"));
+        assertNull(capitalcity.getCapCityContPop(null));
     }
 
     @Test
@@ -157,7 +157,7 @@ public class IntegrationTest {
     @DisplayName("Display the highest to lowest populated capital cities in a given region.")
     void getFailCapCityRegPop()
     {
-        assertNull(capitalcity.getCapCityRegPop("来国子"));
+        assertNull(capitalcity.getCapCityRegPop(null));
     }
 
     @Test
@@ -171,7 +171,7 @@ public class IntegrationTest {
     @DisplayName("Display the highest to lowest populated capital cities in a the world with a set limit.")
     void getFailCapCityWorldPopLimit()
     {
-        assertNull(capitalcity.getCapCityWorldPopLimit("来国子"));
+        assertNull(capitalcity.getCapCityWorldPopLimit(null));
     }
 
     @Test
@@ -185,7 +185,7 @@ public class IntegrationTest {
     @DisplayName("Display the highest to lowest populated capital cities in a given continent with a set limit.")
     void getFailCapCityContPopLimit()
     {
-        assertNull(capitalcity.getCapCityContPopLimit("来国子", "来国子"));
+        assertNull(capitalcity.getCapCityContPopLimit(null, null));
     }
 
     @Test
@@ -215,7 +215,7 @@ public class IntegrationTest {
     @DisplayName("Provides all the cities in the world organised by largest population to smallest with Bad Input")
     void getAllCitiesInWorldDescTestExceptions()
     {
-        assertNull(city.getAllCitiesInWorld(""));
+        assertNull(city.getAllCitiesInWorld(null));
     }
 
 
@@ -228,7 +228,7 @@ public class IntegrationTest {
 
     @Test
     @DisplayName("Provides all the cities in a continent organised by largest population to smallest with bad Input")
-    void getCitiesInContinentDESCTestExceptions() {assertNull(city.getCitiesInContinent("fsdsef", "dasa"));}
+    void getCitiesInContinentDESCTestExceptions() {assertNull(city.getCitiesInContinent(null, null));}
 
 
     @Test
@@ -242,7 +242,7 @@ public class IntegrationTest {
     @DisplayName("Provides all the cities in a region organised by largest population to smallest with bad input")
     void getCitiesInRegionDESCTestExceptions()
     {
-        assertNull(city.getCitiesInRegion("", ""));
+        assertNull(city.getCitiesInRegion(null, null));
     }
 
 
@@ -257,7 +257,7 @@ public class IntegrationTest {
     @DisplayName("Provides all the cities in a country organised by largest population to smallest with bad input")
     void getCitiesInCountryDESCTestExceptions()
     {
-        assertNull(city.getCitiesInCountry("jjnajndjwndjasda", ""));
+        assertNull(city.getCitiesInCountry(null, null));
     }
 
 
@@ -273,7 +273,7 @@ public class IntegrationTest {
     @DisplayName("Provides all the cities in a district organised by largest population to smallest with bad input")
     void getCitiesInDistrictDESCTestExceptions()
     {
-        assertNull(city.getCitiesInDistrict("Distrito Federal", ""));
+        assertNull(city.getCitiesInDistrict(null, null));
     }
 
 }
