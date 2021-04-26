@@ -44,6 +44,9 @@ public class Population {
      */
     public ResultSet getContinentPopulationProportionInCities(String continent) {
         try {
+            if(continent == null){
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
@@ -69,6 +72,9 @@ public class Population {
      */
     public ResultSet getRegionPopulationProportionInCities(String region) {
         try {
+            if(region == null){
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
@@ -94,6 +100,9 @@ public class Population {
      */
     public ResultSet getCountryPopulationProportionInCities(String code) {
         try {
+            if(code == null){
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
@@ -140,6 +149,9 @@ public class Population {
      */
     public ResultSet getContinentPopulation(String continentName) {
         try {
+            if(continentName == null){
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
@@ -163,6 +175,9 @@ public class Population {
      */
     public ResultSet getRegionPopulation(String regionName) {
         try {
+            if(regionName == null){
+                return null;
+            }
             int population;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -187,6 +202,9 @@ public class Population {
      */
     public ResultSet getCountryPopulation(String code) {
         try {
+            if(code == null){
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
@@ -210,6 +228,9 @@ public class Population {
      */
     public ResultSet getDistrictPopulation(String districtName) {
         try {
+            if(districtName == null){
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
@@ -233,6 +254,9 @@ public class Population {
      */
     public ResultSet getCityPopulation(String id) {
         try {
+            if(id == null){
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
