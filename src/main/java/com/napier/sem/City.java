@@ -40,6 +40,11 @@ public class City {
         try
         {
             // Create an SQL statement
+            if(limit == null)
+            {
+                return null;
+            }
+
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
             int limitInt = Integer.parseInt(limit);
@@ -87,6 +92,11 @@ public class City {
     {
         try
         {
+            if(continent == null || limit == null)
+            {
+                return null;
+            }
+
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -140,6 +150,10 @@ public class City {
     {
         try
         {
+            if(region == null || limit == null)
+            {
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -193,6 +207,10 @@ public class City {
     {
         try
         {
+            if(country == null || limit == null)
+            {
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -247,6 +265,10 @@ public class City {
     {
         try
         {
+            if(district == null || limit == null)
+            {
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
