@@ -25,43 +25,8 @@ public class City {
      * @param id    The id of the city within the database
      * @return      Return an object of type city, aka the requested city
      */
-    public City getCity(int id)
-    {
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = DatabaseLink.connInstance().createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT id, name, countryCode, district, population "
-                            + "FROM city "
-                            + "WHERE id = " + id;
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next())
-            {
-                City city = new City();
-                city.id = rset.getInt("id");
-                city.name = rset.getString("name");
-                city.countryCode = rset.getString("countryCode");
-                city.district = rset.getString("district");
-                city.population = rset.getInt("population");
 
 
-                return city;
-            }
-            else
-                return null;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
-    }
 
 
     /**
@@ -75,6 +40,11 @@ public class City {
         try
         {
             // Create an SQL statement
+            if(limit == null)
+            {
+                return null;
+            }
+
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
             int limitInt = Integer.parseInt(limit);
@@ -92,8 +62,9 @@ public class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT Name, Population "
+                    "SELECT city.Name, country.Name AS 'CountryName', city.District, city.Population "
                             + "FROM city "
+                            + "INNER JOIN country ON city.CountryCode = country.Code "
                             + "ORDER BY Population DESC "
                             + limit;
             // Execute SQL statement
@@ -121,6 +92,11 @@ public class City {
     {
         try
         {
+            if(continent == null || limit == null)
+            {
+                return null;
+            }
+
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -139,7 +115,7 @@ public class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "Select city.Name, city.Population "
+                    "SELECT city.Name, country.Name AS 'CountryName', city.District, city.Population "
                             + "FROM city "
                             + "INNER JOIN country ON city.CountryCode = country.Code "
                             + "WHERE country.Continent = " + '\'' + continent + '\''
@@ -174,6 +150,10 @@ public class City {
     {
         try
         {
+            if(region == null || limit == null)
+            {
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -191,7 +171,7 @@ public class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "Select city.Name, city.Population "
+                    "SELECT city.Name, country.Name AS 'CountryName', city.District, city.Population "
                             + "FROM city "
                             + "INNER JOIN country ON city.CountryCode = country.Code "
                             + "WHERE country.Region = " + '\'' + region + '\''
@@ -227,6 +207,10 @@ public class City {
     {
         try
         {
+            if(country == null || limit == null)
+            {
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -245,7 +229,7 @@ public class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "Select city.Name, city.Population "
+                    "SELECT city.Name, country.Name AS 'CountryName', city.District, city.Population "
                             + "FROM city "
                             + "INNER JOIN country ON city.CountryCode = country.Code "
                             + "WHERE country.Name = " + '\'' + country + '\''
@@ -281,6 +265,10 @@ public class City {
     {
         try
         {
+            if(district == null || limit == null)
+            {
+                return null;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -299,8 +287,9 @@ public class City {
 
             // Create string for SQL statement
             String strSelect =
-                    "Select Name, Population "
+                    "SELECT city.Name, country.Name AS 'CountryName', city.District, city.Population "
                             + "FROM city "
+                            + "INNER JOIN country ON city.CountryCode = country.Code "
                             + "WHERE District = " + '\'' + district + '\''
                             + " "
                             + "ORDER BY Population DESC "
