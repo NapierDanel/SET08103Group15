@@ -40,6 +40,9 @@ public class CapitalCity extends City {
     public ResultSet getCapCityContPop(String continentName)
     {
         try {
+            if (continentName == null)
+                NullPointException npe = new NullPointException
+                throw npe;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -68,6 +71,10 @@ public class CapitalCity extends City {
     public ResultSet getCapCityRegPop(String regionName)
     {
         try {
+            if (regionName == null)
+                NullPointException npe = new NullPointException
+                throw npe;
+
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
@@ -94,6 +101,9 @@ public class CapitalCity extends City {
     public ResultSet getCapCityWorldPopLimit(String limitInput)
     {
         try {
+            if (limitInput == null)
+                NullPointException npe = new NullPointException
+                throw npe;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -124,6 +134,9 @@ public class CapitalCity extends City {
     public ResultSet getCapCityContPopLimit(String continentName, String limitInput)
     {
         try {
+            if (continentName == null || limitInput == null)
+                NullPointException npe = new NullPointException
+                throw npe;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -157,6 +170,9 @@ public class CapitalCity extends City {
     public ResultSet getCapCityRegPopLimit(String regionName, String limitInput)
     {
         try {
+            if (regionName == null || limitInput == null)
+                NullPointException npe = new NullPointException
+                throw npe;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 

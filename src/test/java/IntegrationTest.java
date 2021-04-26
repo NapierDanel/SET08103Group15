@@ -97,7 +97,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the continent population exceptions")
     void testGetContinentPopulationExceptions() {
-        assertNull(population.getContinentPopulation("§$学%"));
+        assertNull(population.getContinentPopulation(null));
     }
 
     @Test
@@ -109,7 +109,7 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the region population exceptions")
     void testGetRegionPopulationExceptions() {
-        assertNull(population.getRegionPopulation("§°°^^是是是#$学中文%€!%~~~"));
+        assertNull(population.getRegionPopulation(null));
     }
 
     @Test
@@ -121,7 +121,31 @@ public class IntegrationTest {
     @Test
     @DisplayName("Test the country population exceptions")
     void testGetCountryPopulationExceptions() {
-        assertNull(population.getCountryPopulation("§$%€❁❁!£**%"));
+        assertNull(population.getCountryPopulation(null));
+    }
+
+    @Test
+    @DisplayName("Return the district population.")
+    void getDistrictPopulationTest() {
+        assertNotNull(population.getDistrictPopulation("Distrito Federal"));
+    }
+
+    @Test
+    @DisplayName("Test the district population exceptions")
+    void testGetDistrictPopulationExceptions() {
+        assertNull(population.getDistrictPopulation(null));
+    }
+
+    @Test
+    @DisplayName("Return the city population.")
+    void getCityPopulationTest() {
+        assertNotNull(population.getCityPopulation("5"));
+    }
+
+    @Test
+    @DisplayName("Test the city population exceptions")
+    void testGetCityPopulationExceptions() {
+        assertNull(population.getCityPopulation(null));
     }
 
     // Capital City Tests
