@@ -25,10 +25,6 @@ public class IntegrationTest {
         city = new City();
     }
 
-    /**
-    * Country Tests
-    **/
-
     @Test
     @DisplayName("Provides all the countries in the world organised by largest population to smallest")
     void getCountriesByPopulationDESCTest() throws SQLException {
@@ -36,38 +32,50 @@ public class IntegrationTest {
     }
 
     @Test
-    @DisplayName("All the countries in a continent organised by largest population to smallest.")
-    void getCountriesOnContinentByPopulationDESCTest(){
-        assertNotNull(county.getCountriesInRegionByPopulationDESC("0","Asia"));
+    @DisplayName("All the countries in a region organised by largest population to smallest.")
+    void getCountriesInRegionByPopulationDESCTest() {
+        assertNotNull(county.getCountriesInRegionByPopulationDESC("0", "Middle East"));
     }
 
     @Test
-     @DisplayName("All the countries in a region organised by largest population to smallest.")
-    void getCountriesInRegionByPopulationDESCTest(){
-        assertNotNull(county.getCountriesInRegionByPopulationDESC("0","Middle East"));
-    }
-
-    @Test
-     @DisplayName("The top N populated countries in the world where N is provided by the user.")
-    void getCountriesOnContinentByPopulationDESCWithLimitTest(){
+    @DisplayName("The top N populated countries in the world where N is provided by the user.")
+    void getCountriesOnContinentByPopulationDESCWithLimitTest() {
         assertNotNull(county.getCountriesByPopulationDESC("3"));
     }
 
     @Test
-     @DisplayName("The top N populated countries in a continent where N is provided by the user.")
-    void getCountriesOnContinentByPopulationDESCTestWithLimitTest(){
-        assertNotNull(county.getCountriesInRegionByPopulationDESC("3","Asia"));
+    @DisplayName("The top N populated countries in a continent where N is provided by the user.")
+    void getCountriesOnContinentByPopulationDESCTestWithLimitTest() {
+        assertNotNull(county.getCountriesInRegionByPopulationDESC("3", "Asia"));
     }
 
     @Test
-     @DisplayName("The top N populated countries in a region where N is provided by the user.")
-    void getCountriesInRegionByPopulationDESCTestWithLimitTest(){
-        assertNotNull(county.getCountriesInRegionByPopulationDESC("4","Middle East"));
+    @DisplayName("Print country Test")
+    void printCountryTest() {
+
+    }
+
+    @Test
+    @DisplayName("Provides All the countries in a continent organised by largest population to smallest. getCountriesOnContinentByPopulationDESC ")
+    void getCountriesOnContinentByPopulationDESCTest(){
+        assertNotNull(county.getCountriesOnContinentByPopulationDESC("10", "Europe"));
+    }
+
+    @Test
+    @DisplayName("Provides All the countries in a continent organised by largest population to smallest. getCountriesOnContinentByPopulationDESC ")
+    void getCountriesOnContinentByPopulationDESCTestNull() {
+        assertNull(county.getCountriesOnContinentByPopulationDESC(null, "Europe"));
+    }
+
+    @Test
+    @DisplayName("The top N populated countries in a region where N is provided by the user.")
+    void getCountriesInRegionByPopulationDESCTestWithLimitTest() {
+        assertNotNull(county.getCountriesInRegionByPopulationDESC("4", "Middle East"));
     }
 
     @Test
     @DisplayName("Return the continent population proportion of people living in cities.")
-    void getContinentPopulationProportionInCitiesTest() throws SQLException  {
+    void getContinentPopulationProportionInCitiesTest() throws SQLException {
         assertNotNull(population.getContinentPopulationProportionInCities("Europe"));
     }
 
@@ -126,81 +134,94 @@ public class IntegrationTest {
         assertNull(population.getCountryPopulation(null));
     }
 
+    @Test
+    @DisplayName("Return the district population.")
+    void getDistrictPopulationTest() {
+        assertNotNull(population.getDistrictPopulation("Distrito Federal"));
+    }
+
+    @Test
+    @DisplayName("Test the district population exceptions")
+    void testGetDistrictPopulationExceptions() {
+        assertNull(population.getDistrictPopulation(null));
+    }
+
+    @Test
+    @DisplayName("Return the city population.")
+    void getCityPopulationTest() {
+        assertNotNull(population.getCityPopulation("5"));
+    }
+
+    @Test
+    @DisplayName("Test the city population exceptions")
+    void testGetCityPopulationExceptions() {
+        assertNull(population.getCityPopulation(null));
+    }
+
     // Capital City Tests
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in the world.")
-    void getCapCityWorldPop()
-    {
+    void getCapCityWorldPop() {
         assertNotNull(capitalcity.getCapCityWorldPop());
     }
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given continent.")
-    void getCapCityContPop()
-    {
+    void getCapCityContPop() {
         assertNotNull(capitalcity.getCapCityContPop("Asia"));
     }
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given continent.")
-    void getFailCapCityContPop()
-    {
+    void getFailCapCityContPop() {
         assertNull(capitalcity.getCapCityContPop(null));
     }
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given region.")
-    void getCapCityRegPop()
-    {
+    void getCapCityRegPop() {
         assertNotNull(capitalcity.getCapCityRegPop("Eastern Europe"));
     }
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given region.")
-    void getFailCapCityRegPop()
-    {
+    void getFailCapCityRegPop() {
         assertNull(capitalcity.getCapCityRegPop(null));
     }
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a the world with a set limit.")
-    void getCapCityWorldPopLimit()
-    {
+    void getCapCityWorldPopLimit() {
         assertNotNull(capitalcity.getCapCityWorldPopLimit("10"));
     }
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a the world with a set limit.")
-    void getFailCapCityWorldPopLimit()
-    {
+    void getFailCapCityWorldPopLimit() {
         assertNull(capitalcity.getCapCityWorldPopLimit(null));
     }
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given continent with a set limit.")
-    void getCapCityContPopLimit()
-    {
+    void getCapCityContPopLimit() {
         assertNotNull(capitalcity.getCapCityContPopLimit("Asia", "10"));
     }
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given continent with a set limit.")
-    void getFailCapCityContPopLimit()
-    {
+    void getFailCapCityContPopLimit() {
         assertNull(capitalcity.getCapCityContPopLimit(null, null));
     }
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given region with a set limit.")
-    void getCapCityRegPopLimit()
-    {
+    void getCapCityRegPopLimit() {
         assertNotNull(capitalcity.getCapCityRegPopLimit("Eastern Europe", "10"));
     }
 
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in a given region with a set limit.")
-    void getFailCapCityRegPopLimit()
-    {
+    void getFailCapCityRegPopLimit() {
         assertNull(capitalcity.getCapCityRegPopLimit(null, null));
     }
 
@@ -208,73 +229,65 @@ public class IntegrationTest {
 
     @Test
     @DisplayName("Provides all the cities in the world organised by largest population to smallest")
-    void getAllCitiesInWorldDescTest()
-    {
+    void getAllCitiesInWorldDescTest() {
         assertNotNull(city.getAllCitiesInWorld("20"));
     }
 
     @Test
     @DisplayName("Provides all the cities in the world organised by largest population to smallest with Bad Input")
-    void getAllCitiesInWorldDescTestExceptions()
-    {
+    void getAllCitiesInWorldDescTestExceptions() {
         assertNull(city.getAllCitiesInWorld(null));
     }
 
 
     @Test
     @DisplayName("Provides all the cities in a continent organised by largest population to smallest")
-    void getCitiesInContinentDESCTest()
-    {
+    void getCitiesInContinentDESCTest() {
         assertNotNull(city.getCitiesInContinent("Asia", "20"));
     }
 
     @Test
     @DisplayName("Provides all the cities in a continent organised by largest population to smallest with bad Input")
-    void getCitiesInContinentDESCTestExceptions() {assertNull(city.getCitiesInContinent(null, null));}
+    void getCitiesInContinentDESCTestExceptions() {
+        assertNull(city.getCitiesInContinent(null, null));
+    }
 
 
     @Test
     @DisplayName("Provides all the cities in a region organised by largest population to smallest")
-    void getCitiesInRegionDESCTest()
-    {
+    void getCitiesInRegionDESCTest() {
         assertNotNull(city.getCitiesInRegion("Western Europe", "10"));
     }
 
     @Test
     @DisplayName("Provides all the cities in a region organised by largest population to smallest with bad input")
-    void getCitiesInRegionDESCTestExceptions()
-    {
+    void getCitiesInRegionDESCTestExceptions() {
         assertNull(city.getCitiesInRegion(null, null));
     }
 
 
     @Test
     @DisplayName("Provides all the cities in a country organised by largest population to smallest")
-    void getCitiesInCountryDESCTest()
-    {
+    void getCitiesInCountryDESCTest() {
         assertNotNull(city.getCitiesInCountry("Belgium", "10"));
     }
 
     @Test
     @DisplayName("Provides all the cities in a country organised by largest population to smallest with bad input")
-    void getCitiesInCountryDESCTestExceptions()
-    {
+    void getCitiesInCountryDESCTestExceptions() {
         assertNull(city.getCitiesInCountry(null, null));
     }
 
 
-
     @Test
     @DisplayName("Provides all the cities in a district organised by largest population to smallest")
-    void getCitiesInDistrictDESCTest()
-    {
+    void getCitiesInDistrictDESCTest() {
         assertNotNull(city.getCitiesInDistrict("Distrito Federal", "2"));
     }
 
     @Test
     @DisplayName("Provides all the cities in a district organised by largest population to smallest with bad input")
-    void getCitiesInDistrictDESCTestExceptions()
-    {
+    void getCitiesInDistrictDESCTestExceptions() {
         assertNull(city.getCitiesInDistrict(null, null));
     }
 
