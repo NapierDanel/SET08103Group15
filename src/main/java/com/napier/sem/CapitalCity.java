@@ -41,7 +41,8 @@ public class CapitalCity extends City {
     {
         try {
             if (continentName == null)
-                return null;
+                NullPointException npe = new NullPointException
+                throw npe;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -71,7 +72,8 @@ public class CapitalCity extends City {
     {
         try {
             if (regionName == null)
-                return null;
+                NullPointException npe = new NullPointException
+                throw npe;
 
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -100,7 +102,8 @@ public class CapitalCity extends City {
     {
         try {
             if (limitInput == null)
-                return null;
+                NullPointException npe = new NullPointException
+                throw npe;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -132,7 +135,8 @@ public class CapitalCity extends City {
     {
         try {
             if (continentName == null || limitInput == null)
-                return null;
+                NullPointException npe = new NullPointException
+                throw npe;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -167,7 +171,8 @@ public class CapitalCity extends City {
     {
         try {
             if (regionName == null || limitInput == null)
-                return null;
+                NullPointException npe = new NullPointException
+                throw npe;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
