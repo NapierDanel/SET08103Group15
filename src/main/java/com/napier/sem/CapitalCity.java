@@ -72,6 +72,7 @@ public class CapitalCity extends City {
         try {
             if (regionName == null)
                 return null;
+
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
