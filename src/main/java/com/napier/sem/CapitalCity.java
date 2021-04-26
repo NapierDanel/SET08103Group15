@@ -40,6 +40,8 @@ public class CapitalCity extends City {
     public ResultSet getCapCityContPop(String continentName)
     {
         try {
+            if (continentName == null)
+                return null;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -68,6 +70,9 @@ public class CapitalCity extends City {
     public ResultSet getCapCityRegPop(String regionName)
     {
         try {
+            if (regionName == null)
+                return null;
+
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
@@ -94,6 +99,8 @@ public class CapitalCity extends City {
     public ResultSet getCapCityWorldPopLimit(String limitInput)
     {
         try {
+            if (limitInput == null)
+                return null;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -101,9 +108,10 @@ public class CapitalCity extends City {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT Name, Population "
-                            + "FROM city "
-                            + "ORDER BY Population DESC "
+                    "SELECT ci.Name AS 'CityName', country.Name AS 'CountryName', ci.Population "
+                            + "FROM city ci "
+                            + "INNER JOIN country ON ci.ID=country.capital "
+                            + "ORDER BY ci.Population DESC "
                             + "LIMIT " + limit;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -123,6 +131,8 @@ public class CapitalCity extends City {
     public ResultSet getCapCityContPopLimit(String continentName, String limitInput)
     {
         try {
+            if (continentName == null || limitInput == null)
+                return null;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -156,6 +166,8 @@ public class CapitalCity extends City {
     public ResultSet getCapCityRegPopLimit(String regionName, String limitInput)
     {
         try {
+            if (regionName == null || limitInput == null)
+                return null;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
