@@ -94,6 +94,8 @@ public class Population {
      */
     public ResultSet getCountryPopulationProportionInCities(String code) {
         try {
+            if (code == null)
+                return null;
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
             // Create string for SQL statement
