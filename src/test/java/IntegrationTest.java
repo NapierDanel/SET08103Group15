@@ -124,6 +124,30 @@ public class IntegrationTest {
         assertNull(population.getCountryPopulation(null));
     }
 
+    @Test
+    @DisplayName("Return the district population.")
+    void getDistrictPopulationTest() {
+        assertNotNull(population.getDistrictPopulation("Distrito Federal"));
+    }
+
+    @Test
+    @DisplayName("Test the district population exceptions")
+    void testGetDistrictPopulationExceptions() {
+        assertNull(population.getDistrictPopulation(null));
+    }
+
+    @Test
+    @DisplayName("Return the city population.")
+    void getCityPopulationTest() {
+        assertNotNull(population.getCityPopulation("5"));
+    }
+
+    @Test
+    @DisplayName("Test the city population exceptions")
+    void testGetCityPopulationExceptions() {
+        assertNull(population.getCityPopulation(null));
+    }
+
     // Capital City Tests
     @Test
     @DisplayName("Display the highest to lowest populated capital cities in the world.")
