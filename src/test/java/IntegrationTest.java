@@ -25,9 +25,6 @@ public class IntegrationTest {
         city = new City();
     }
 
-    /**
-     * Country Tests
-     **/
     @Test
     @DisplayName("Provides all the countries in the world organised by largest population to smallest")
     void getCountriesByPopulationDESCTest() throws SQLException {
@@ -94,6 +91,7 @@ public class IntegrationTest {
         assertNotNull(population.getCountryPopulationProportionInCities("SAU"));
     }
 
+    // Test
     @Test
     @DisplayName("Return world population.")
     void getWorldPopulationTest() {

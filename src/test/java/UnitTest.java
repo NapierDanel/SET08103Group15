@@ -30,7 +30,6 @@ public class UnitTest {
 
         assertEquals("Wakanda", wakanda.printCountry(wakanda));
 
-
     }
 
     @Test
