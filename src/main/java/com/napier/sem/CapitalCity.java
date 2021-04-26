@@ -29,8 +29,8 @@ public class CapitalCity extends City {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -40,9 +40,10 @@ public class CapitalCity extends City {
     public ResultSet getCapCityContPop(String continentName)
     {
         try {
-            if (continentName == null)
-                NullPointException npe = new NullPointException
+            if (continentName == null) {
+                NullPointerException npe = new NullPointerException();
                 throw npe;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -60,8 +61,8 @@ public class CapitalCity extends City {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -71,9 +72,10 @@ public class CapitalCity extends City {
     public ResultSet getCapCityRegPop(String regionName)
     {
         try {
-            if (regionName == null)
-                NullPointException npe = new NullPointException
+            if (regionName == null) {
+                NullPointerException npe = new NullPointerException();
                 throw npe;
+            }
 
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -90,8 +92,8 @@ public class CapitalCity extends City {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -101,9 +103,10 @@ public class CapitalCity extends City {
     public ResultSet getCapCityWorldPopLimit(String limitInput)
     {
         try {
-            if (limitInput == null)
-                NullPointException npe = new NullPointException
+            if (limitInput == null) {
+                NullPointerException npe = new NullPointerException();
                 throw npe;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -122,8 +125,8 @@ public class CapitalCity extends City {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get all city details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -134,9 +137,10 @@ public class CapitalCity extends City {
     public ResultSet getCapCityContPopLimit(String continentName, String limitInput)
     {
         try {
-            if (continentName == null || limitInput == null)
-                NullPointException npe = new NullPointException
+            if (continentName == null || limitInput == null) {
+                NullPointerException npe = new NullPointerException();
                 throw npe;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -156,8 +160,8 @@ public class CapitalCity extends City {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get all city details");
+            return null;
         }
-        return null;
     }
 
     /**
@@ -170,9 +174,10 @@ public class CapitalCity extends City {
     public ResultSet getCapCityRegPopLimit(String regionName, String limitInput)
     {
         try {
-            if (regionName == null || limitInput == null)
-                NullPointException npe = new NullPointException
+            if (regionName == null || limitInput == null) {
+                NullPointerException npe = new NullPointerException();
                 throw npe;
+            }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
 
@@ -192,8 +197,8 @@ public class CapitalCity extends City {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get all city details");
+            return null;
         }
-        return null;
     }
 }
 
