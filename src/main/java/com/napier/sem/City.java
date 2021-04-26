@@ -42,7 +42,8 @@ public class City {
             // Create an SQL statement
             if(limit == null)
             {
-                return null;
+                NullPointerException nullPointerException = new NullPointerException();
+                throw nullPointerException;
             }
 
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -94,7 +95,8 @@ public class City {
         {
             if(continent == null || limit == null)
             {
-                return null;
+                NullPointerException nullPointerException = new NullPointerException();
+                throw nullPointerException;
             }
 
             // Create an SQL statement
@@ -152,7 +154,8 @@ public class City {
         {
             if(region == null || limit == null)
             {
-                return null;
+                NullPointerException nullPointerException = new NullPointerException();
+                throw nullPointerException;
             }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -209,7 +212,8 @@ public class City {
         {
             if(country == null || limit == null)
             {
-                return null;
+                NullPointerException nullPointerException = new NullPointerException();
+                throw nullPointerException;
             }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
@@ -267,7 +271,8 @@ public class City {
         {
             if(district == null || limit == null)
             {
-                return null;
+                NullPointerException nullPointerException = new NullPointerException();
+                throw nullPointerException;
             }
             // Create an SQL statement
             Statement stmt = DatabaseLink.connInstance().createStatement();
