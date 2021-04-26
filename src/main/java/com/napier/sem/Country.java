@@ -60,7 +60,19 @@ public class Country {
     /**
      * Provides all the countries in the world organised by largest population to smallest.
      */
-    public ResultSet getCountriesByPopulationDESC(int limit) {
+    public ResultSet getCountriesByPopulationDESC(String limitInput) {
+
+        if (limitInput == null) {
+            return null;
+        }
+
+        int limit;
+
+        try {
+            limit = Integer.parseInt(limitInput);
+        } catch (NumberFormatException e) {
+            return null;
+        }
 
         String strSelect;
 
@@ -80,20 +92,32 @@ public class Country {
     /**
      * Provides All the countries in a continent organised by largest population to smallest.
      */
-    public ResultSet getCountriesOnContinentByPopulationDESC(int limit, String continent) {
+    public ResultSet getCountriesOnContinentByPopulationDESC(String limitInput, String continent) {
+
+
+        if (limitInput == null) {
+            return null;
+        }
 
         String strSelect;
+        int limit;
+
+        try {
+            limit = Integer.parseInt(limitInput);
+        } catch (NumberFormatException e) {
+            return null;
+        }
 
         if (limit == 0) {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
-                    + "where continent = "  + '\'' + continent + '\''
+                    + "where continent = " + '\'' + continent + '\''
                     + " "
                     + "ORDER BY Population DESC";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
-                    + "where continent = "  + '\'' + continent + '\''
+                    + "where continent = " + '\'' + continent + '\''
                     + " "
                     + "ORDER BY Population DESC "
                     + "LIMIT " + limit;
@@ -104,20 +128,32 @@ public class Country {
     /**
      * Provides all the countries in a region organised by largest population to smallest.
      */
-    public ResultSet getCountriesInRegionByPopulationDESC(int limit, String region) {
+    public ResultSet getCountriesInRegionByPopulationDESC(String limitInput, String region) {
+
+        if (limitInput == null) {
+            return null;
+        }
 
         String strSelect;
+        int limit;
+
+        try {
+            limit = Integer.parseInt(limitInput);
+        } catch (NumberFormatException e) {
+            return null;
+        }
+
 
         if (limit == 0) {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
-                    + "where region = "  + '\'' + region + '\''
+                    + "where region = " + '\'' + region + '\''
                     + " "
                     + "ORDER BY Population DESC ";
         } else {
             strSelect = "SELECT code, name, continent, region, population, capital "
                     + "FROM country "
-                    + "where region = "  + '\'' + region + '\''
+                    + "where region = " + '\'' + region + '\''
                     + " "
                     + "ORDER BY Population DESC "
                     + "LIMIT " + limit;
