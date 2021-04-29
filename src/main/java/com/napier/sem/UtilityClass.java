@@ -12,7 +12,7 @@ public class UtilityClass {
      * @param filename name of the csv file
      * @param rset ResultSet from which the csv is created
      */
-    public void exportCSV(String filename, ResultSet rset)
+    public boolean exportCSV(String filename, ResultSet rset)
     {
         try
         {
@@ -69,6 +69,8 @@ public class UtilityClass {
 
 
             System.out.println("Output complete");
+
+            return true;
         }
         catch (Exception e)
         {
@@ -77,10 +79,9 @@ public class UtilityClass {
             System.out.print("The filename is " + filename);
 
             System.out.println(e.toString());
+
+            return false;
         }
-
-
-
 
     }
 

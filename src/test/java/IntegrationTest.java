@@ -1,21 +1,19 @@
-import com.napier.sem.CapitalCity;
-import com.napier.sem.Country;
-import com.napier.sem.Population;
-import com.napier.sem.City;
+import com.napier.sem.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.sql.SQLException;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IntegrationTest {
     static Population population;
     static Country county;
     static CapitalCity capitalcity;
     static City city;
+    static UtilityClass utilityClass;
 
     @BeforeAll
     static void init() {
@@ -23,6 +21,15 @@ public class IntegrationTest {
         county = new Country();
         capitalcity = new CapitalCity();
         city = new City();
+        utilityClass = new UtilityClass();
+    }
+
+    @Test
+    @DisplayName("The export csv file exists")
+    void testCSV() {
+        utilityClass.exportCSV("bar", population.getContinentPopulation("Frankreich"));
+        File tmpDir = new File("./bar.csv");
+        assertTrue(tmpDir.exists());
     }
 
     @Test
