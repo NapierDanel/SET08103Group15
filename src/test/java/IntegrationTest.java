@@ -64,10 +64,18 @@ public class IntegrationTest {
         assertNotNull(county.getCountriesInRegionByPopulationDESC("4","Middle East"));
     }
 
+    //Population Tests
+
     @Test
     @DisplayName("Return the continent population proportion of people living in cities.")
     void getContinentPopulationProportionInCitiesTest() throws SQLException  {
         assertNotNull(population.getContinentPopulationProportionInCities("Europe"));
+    }
+
+    @Test
+    @DisplayName("Return the continent population proportion of people living in cities.")
+    void getContinentPopulationProportionInCitiesExceptionTest() throws SQLException {
+        assertNull(population.getContinentPopulationProportionInCities(null));
     }
 
     @Test
@@ -77,9 +85,21 @@ public class IntegrationTest {
     }
 
     @Test
+    @DisplayName("Return the region population proportion of people living in cities.")
+    void getRegionPopulationProportionInCitiesExceptionTest() throws SQLException {
+        assertNull(population.getRegionPopulationProportionInCities(null));
+    }
+
+    @Test
     @DisplayName("Return the country population proportion of people living in cities.")
     void getCountryPopulationProportionInCities() {
         assertNotNull(population.getCountryPopulationProportionInCities("SAU"));
+    }
+
+    @Test
+    @DisplayName("Return the country population proportion of people living in cities.")
+    void Exception() {
+        assertNull(population.getCountryPopulationProportionInCities(null));
     }
 
     @Test
@@ -122,6 +142,12 @@ public class IntegrationTest {
     @DisplayName("Test the country population exceptions")
     void testGetCountryPopulationExceptions() {
         assertNull(population.getCountryPopulation(null));
+    }
+
+    @Test
+    @DisplayName("Test the Population Of Language Speakers")
+    void testGetPopulationOfLanguageSpeakers() {
+        assertNotNull(population.getPopulationOfLanguageSpeakers());
     }
 
     // Capital City Tests
