@@ -1,21 +1,19 @@
-import com.napier.sem.CapitalCity;
-import com.napier.sem.Country;
-import com.napier.sem.Population;
-import com.napier.sem.City;
+import com.napier.sem.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.sql.SQLException;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IntegrationTest {
     static Population population;
     static Country county;
     static CapitalCity capitalcity;
     static City city;
+    static UtilityClass utilityClass;
 
     @BeforeAll
     static void init() {
@@ -23,6 +21,15 @@ public class IntegrationTest {
         county = new Country();
         capitalcity = new CapitalCity();
         city = new City();
+        utilityClass = new UtilityClass();
+    }
+
+    @Test
+    @DisplayName("The export csv file exists")
+    void testCSV() {
+        utilityClass.exportCSV("bar", population.getContinentPopulation("Frankreich"));
+        File tmpDir = new File("./bar.csv");
+        assertTrue(tmpDir.exists());
     }
 
     @Test
@@ -57,7 +64,7 @@ public class IntegrationTest {
 
     @Test
     @DisplayName("Provides All the countries in a continent organised by largest population to smallest. getCountriesOnContinentByPopulationDESC ")
-    void getCountriesOnContinentByPopulationDESCTest(){
+    void getCountriesOnContinentByPopulationDESCTest() {
         assertNotNull(county.getCountriesOnContinentByPopulationDESC("10", "Europe"));
     }
 
@@ -73,16 +80,36 @@ public class IntegrationTest {
         assertNotNull(county.getCountriesInRegionByPopulationDESC("4", "Middle East"));
     }
 
+    // Population Test
+
+    @Test
+    @DisplayName("Return the population of language speakers.")
+    void getPopulationOfLanguageSpeakersTest() {
+        assertNotNull(population.getPopulationOfLanguageSpeakers());
+    }
+
     @Test
     @DisplayName("Return the continent population proportion of people living in cities.")
-    void getContinentPopulationProportionInCitiesTest() throws SQLException {
+    void getContinentPopulationProportionInCitiesTest() {
         assertNotNull(population.getContinentPopulationProportionInCities("Europe"));
     }
 
     @Test
+    @DisplayName("Return the continent population proportion of people living in cities.")
+    void getContinentPopulationProportionInCitiesException() {
+        assertNull(population.getContinentPopulationProportionInCities(null));
+    }
+
+    @Test
     @DisplayName("Return the region population proportion of people living in cities.")
-    void getRegionPopulationProportionInCitiesTest() throws SQLException {
+    void getRegionPopulationProportionInCitiesTest() {
         assertNotNull(population.getRegionPopulationProportionInCities("Southeast Asia"));
+    }
+
+    @Test
+    @DisplayName("Return the region population proportion of people living in cities.")
+    void getRegionPopulationProportionInCitiesException() {
+        assertNull(population.getRegionPopulationProportionInCities(null));
     }
 
     @Test
@@ -91,7 +118,12 @@ public class IntegrationTest {
         assertNotNull(population.getCountryPopulationProportionInCities("SAU"));
     }
 
-    // Test
+    @Test
+    @DisplayName("Return the country population proportion of people living in cities.")
+    void getCountryPopulationProportionInCitiesException() {
+        assertNull(population.getCountryPopulationProportionInCities(null));
+    }
+
     @Test
     @DisplayName("Return world population.")
     void getWorldPopulationTest() {

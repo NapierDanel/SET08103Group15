@@ -1,22 +1,31 @@
 import com.napier.sem.Country;
 
+import com.napier.sem.UtilityClass;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.sql.ResultSet;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class UnitTest {
 
     static Country wakanda;
+    static UtilityClass utilityClass;
 
     @BeforeAll
     static void init(){
-
+        utilityClass = new UtilityClass();
         wakanda = new Country();
+    }
+
+    @Test
+    @DisplayName("Test if the method return false if no ResultSet is inserted")
+    void testCSV(){
+        assertFalse(utilityClass.exportCSV("foo", null));
     }
 
     @Test
