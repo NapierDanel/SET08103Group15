@@ -57,7 +57,7 @@ public class IntegrationTest {
 
     @Test
     @DisplayName("Provides All the countries in a continent organised by largest population to smallest. getCountriesOnContinentByPopulationDESC ")
-    void getCountriesOnContinentByPopulationDESCTest(){
+    void getCountriesOnContinentByPopulationDESCTest() {
         assertNotNull(county.getCountriesOnContinentByPopulationDESC("10", "Europe"));
     }
 
@@ -73,16 +73,36 @@ public class IntegrationTest {
         assertNotNull(county.getCountriesInRegionByPopulationDESC("4", "Middle East"));
     }
 
+    // Population Test
+
+    @Test
+    @DisplayName("Return the population of language speakers.")
+    void getPopulationOfLanguageSpeakersTest() {
+        assertNotNull(population.getPopulationOfLanguageSpeakers());
+    }
+
     @Test
     @DisplayName("Return the continent population proportion of people living in cities.")
-    void getContinentPopulationProportionInCitiesTest() throws SQLException {
+    void getContinentPopulationProportionInCitiesTest() {
         assertNotNull(population.getContinentPopulationProportionInCities("Europe"));
     }
 
     @Test
+    @DisplayName("Return the continent population proportion of people living in cities.")
+    void getContinentPopulationProportionInCitiesException() {
+        assertNull(population.getContinentPopulationProportionInCities(null));
+    }
+
+    @Test
     @DisplayName("Return the region population proportion of people living in cities.")
-    void getRegionPopulationProportionInCitiesTest() throws SQLException {
+    void getRegionPopulationProportionInCitiesTest() {
         assertNotNull(population.getRegionPopulationProportionInCities("Southeast Asia"));
+    }
+
+    @Test
+    @DisplayName("Return the region population proportion of people living in cities.")
+    void getRegionPopulationProportionInCitiesException() {
+        assertNull(population.getRegionPopulationProportionInCities(null));
     }
 
     @Test
@@ -91,7 +111,12 @@ public class IntegrationTest {
         assertNotNull(population.getCountryPopulationProportionInCities("SAU"));
     }
 
-    // Test
+    @Test
+    @DisplayName("Return the country population proportion of people living in cities.")
+    void getCountryPopulationProportionInCitiesException() {
+        assertNull(population.getCountryPopulationProportionInCities(null));
+    }
+
     @Test
     @DisplayName("Return world population.")
     void getWorldPopulationTest() {
