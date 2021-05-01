@@ -32,21 +32,21 @@
 | 14 |The top N populated cities in a region where N is provided by the user.   |  Yes | ![](images/citiesRegionReport.jpg)  |
 | 15 |The top N populated cities in a country where N is provided by the user.   |  Yes | ![](images/citiesInCountryReport.jpg)  |
 | 16 |The top N populated cities in a district where N is provided by the user.   |  Yes | ![](images/citiesInDistrictReport.jpg)  |
-| 17 |All the capital cities in the world organised by largest population to smallest.   |  Yes | ![](images/ex.jpg)  |
-| 18 |All the capital cities in a continent organised by largest population to smallest.   |  Yes | ![](images/ex.jpg)  |
-| 19 |All the capital cities in a region organised by largest to smallest.   |  Yes | ![](images/ex.jpg)  |
-| 20 |The top N populated capital cities in the world where N is provided by the user.   |  Yes | ![](images/ex.jpg)  |
-| 21 |The top N populated capital cities in a continent where N is provided by the user.   |  Yes | ![](images/ex.jpg)  |
-| 22 |The top N populated capital cities in a region where N is provided by the user.   |  Yes | ![](images/ex.jpg)  |
-| 23 |The population of people, people living in cities, and people not living in cities in each continent.   |  Yes | ![](images/ex.jpg)  |
-| 24 |The population of people, people living in cities, and people not living in cities in each region.   |  Yes | ![](images/ex.jpg)  |
-| 25 |The population of people, people living in cities, and people not living in cities in each country.   |  Yes | ![](images/ex.jpg)  |
-| 26 |The population of the world.   |  Yes | ![](images/ex.jpg)  |
-| 27 |The population of a continent.   |  Yes | ![](images/ex.jpg)  |
-| 28 |The population of a region.   |  Yes | ![](images/ex.jpg) |
-| 29 |The population of a country.   |  Yes | ![](images/ex.jpg)  |
-| 30 |The population of a district.   |  Yes | ![](images/ex.jpg)  |
-| 31 |The population of a city.   |  Yes | ![](images/ex.jpg)   |
-| 32 |The most common spoken languages from largest to smallest including precentages.   |  Yes | ![](images/ex.jpg)  |
+| 17 |All the capital cities in the world organised by largest population to smallest.   |  Yes | ![](images/capCityWorldPop.jpg)  |
+| 18 |All the capital cities in a continent organised by largest population to smallest.   |  Yes | ![](images/capCityContPop.jpg)  |
+| 19 |All the capital cities in a region organised by largest to smallest.   |  Yes | ![](images/capCityRegPop.jpg)  |
+| 20 |The top N populated capital cities in the world where N is provided by the user.   |  Yes | ![](images/capCityWorldPopLimit.jpg)  |
+| 21 |The top N populated capital cities in a continent where N is provided by the user.   |  Yes | ![](images/capCityContPopLimit.jpg)  |
+| 22 |The top N populated capital cities in a region where N is provided by the user.   |  Yes | ![](images/capCityRegPopLimit.jpg)  |
+| 23 |The population of people, people living in cities, and people not living in cities in each continent.   |  Yes | ![](images/continentPopulationProportionInCities.jpg)  |
+| 24 |The population of people, people living in cities, and people not living in cities in each region.   |  Yes | ![](images/regionPopulationProportionInCities.jpg)  |
+| 25 |The population of people, people living in cities, and people not living in cities in each country.   |  Yes | ![](images/countryPopulationProportionInCities.jpg)  |
+| 26 |The population of the world.   |  Yes | ![](images/worldPopulation.jpg)  |
+| 27 |The population of a continent.   |  Yes | ![](images/continentPopulation.jpg)  |
+| 28 |The population of a region.   |  Yes | ![](images/regionPopulation.jpg) |
+| 29 |The population of a country.   |  Yes | ![](images/countryPopulation.jpg)  |
+| 30 |The population of a district.   |  Yes | ![](images/districtPopulation.jpg)  |
+| 31 |The population of a city.   |  Yes | ![](images/cityPopulation.jpg)   |
+| 32 |The most common spoken languages from largest to smallest including precentages.   |  Yes | ![](images/populationOfLanguageSpeakers.jpg)  |
 
 
