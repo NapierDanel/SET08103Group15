@@ -11,7 +11,7 @@
 
 
 
-32 requierments out of 32 have been met
+32 requierments out of 32 have been met, which is 100%
 
 
 | ID | Name  | Met  | Screenshot  |
