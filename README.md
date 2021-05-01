@@ -32,21 +32,21 @@
 | 14 |The top N populated cities in a region where N is provided by the user.   |  Yes |   |
 | 15 |The top N populated cities in a country where N is provided by the user.   |  Yes |   |
 | 16 |The top N populated cities in a district where N is provided by the user.   |  Yes |   |
-| 17 |   |  Yes |   |
-| 18 |   |  Yes |   |
-| 19 |   |  Yes |   |
-| 20 |   |  Yes |   |
-| 21 |   |  Yes |   |
-| 22 |   |  Yes |   |
-| 23 |   |  Yes |   |
-| 24 |   |  Yes |   |
-| 25 |   |  Yes |   |
-| 26 |   |  Yes |   |
-| 27 |   |  Yes |   |
-| 28 |   |  Yes |   |
-| 29 |   |  Yes |   |
-| 30 |   |  Yes |   |
-| 31 |   |  Yes |   |
-| 32 |   |  Yes |   |
+| 17 |All the capital cities in the world organised by largest population to smallest.   |  Yes |   |
+| 18 |All the capital cities in a continent organised by largest population to smallest.   |  Yes |   |
+| 19 |All the capital cities in a region organised by largest to smallest.   |  Yes |   |
+| 20 |The top N populated capital cities in the world where N is provided by the user.   |  Yes |   |
+| 21 |The top N populated capital cities in a continent where N is provided by the user.   |  Yes |   |
+| 22 |The top N populated capital cities in a region where N is provided by the user.   |  Yes |   |
+| 23 |The population of people, people living in cities, and people not living in cities in each continent.   |  Yes |   |
+| 24 |The population of people, people living in cities, and people not living in cities in each region.   |  Yes |   |
+| 25 |The population of people, people living in cities, and people not living in cities in each country.   |  Yes |   |
+| 26 |The population of the world.   |  Yes |   |
+| 27 |The population of a continent.   |  Yes |   |
+| 28 |The population of a region.   |  Yes |   |
+| 29 |The population of a country.   |  Yes |   |
+| 30 |The population of a district.   |  Yes |   |
+| 31 |The population of a city.   |  Yes |   |
+| 32 |The most common spoken languages from largest to smallest including precentages.   |  Yes |   |
 
 
